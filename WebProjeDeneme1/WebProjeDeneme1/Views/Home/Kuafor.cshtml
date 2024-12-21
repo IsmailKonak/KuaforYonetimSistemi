@@ -1,0 +1,351 @@
+﻿@{
+    ViewData["Title"] = "Elite Kuaför Salonu";
+}
+
+<div class="container mt-5">
+    <!-- Hero Section -->
+    <div class="row align-items-center mb-5 hero-section">
+        <div class="col-md-7">
+            <h1 class="display-4 fw-bold text-gold">Elite Kuaför Salonu</h1>
+            <p class="lead text-dark">
+                Modern ve yenilikçi saç tasarımları, kişiye özel bakım hizmetleriyle Elite Kuaför Salonu, güzelliğinizi ortaya çıkarıyor.
+            </p>
+            <p class="text-dark">
+                <i class="bi bi-geo-alt-fill text-secondary"></i> Bağdat Caddesi No:35, Kadıköy, İstanbul <br>
+                <i class="bi bi-telephone-fill text-secondary"></i> +90 212 555 1212 |
+                <i class="bi bi-envelope-fill text-secondary"></i> elitekuafor@example.com <br>
+                <i class="bi bi-clock-fill text-secondary"></i> 09:00 - 21:00 (Hafta İçi ve Hafta Sonu)
+            </p>
+            <button class="btn btn-lg btn-accent mt-3">Hemen Randevu Al</button>
+        </div>
+        <div class="col-md-5">
+            <img src="/images/Berber Muharrem.jpg" class="img-fluid rounded-3 shadow-lg" alt="Elite Kuaför Dış Görünüm">
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="row about-section mb-5">
+        <div class="col-md-4 mb-4 mb-md-0">
+            <h4 class="text-gold">Biz Kimiz?</h4>
+            <p class="text-dark">
+                Elite Kuaför Salonu olarak, her bir müşterimize özel, yenilikçi ve trend saç tasarımları sunuyoruz. Kadın, erkek ve çocuklara yönelik geniş hizmet yelpazemizle, balayajdan keratin bakımına, saç botoksundan kişiye özel kesimlere kadar her alanda uzmanız.
+            </p>
+        </div>
+        <div class="col-md-8">
+            <h4 class="text-gold mb-3">Galerimiz</h4>
+            <div class="row g-2">
+                <div class="col-6 col-md-3">
+                    <img src="/images/icarditras.jpg" class="img-fluid rounded-3 shadow-sm gallery-image" alt="İç Görünüm" onclick="openImage(this.src)">
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="/images/Gandhitiras.jpg" class="img-fluid rounded-3 shadow-sm gallery-image" alt="İç Görünüm" onclick="openImage(this.src)">
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="/images/stromaetiras.jpg" class="img-fluid rounded-3 shadow-sm gallery-image" alt="Müşteri Hizmeti" onclick="openImage(this.src)">
+                </div>
+                <div class="col-6 col-md-3">
+                    <img src="/images/cekiktiras.jpg" class="img-fluid rounded-3 shadow-sm gallery-image" alt="Müşteri Hizmeti" onclick="openImage(this.src)">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <div class="row services-section mb-5">
+        <div class="col-12">
+            <h4 class="text-gold mb-4 text-center">Hizmetlerimiz</h4>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col">İşlem Türü</th>
+                            <th scope="col">Fiyat</th>
+                            <th scope="col">Süre</th>
+                            <th scope="col">Uzmanlarımız</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Balayaj</td>
+                            <td>500 TL</td>
+                            <td>120 dakika</td>
+                            <td>Ayşe, Melis</td>
+                        </tr>
+                        <tr>
+                            <td>Keratin Bakım</td>
+                            <td>400 TL</td>
+                            <td>90 dakika</td>
+                            <td>Ahmet, Ceren</td>
+                        </tr>
+                        <tr>
+                            <td>Saç Botoksu</td>
+                            <td>450 TL</td>
+                            <td>80 dakika</td>
+                            <td>Mehmet, Ayşe</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Section -->
+    <div class="row booking-section">
+        <div class="col-12">
+            <h4 class="text-gold mb-4 text-center">Hemen Randevu Alın</h4>
+        </div>
+        <div class="col-md-6 mb-4 mb-md-0">
+            <h5 class="text-secondary">Müsaitlik Takvimi</h5>
+            <div class="calendar-container shadow-sm p-3 rounded-3">
+                <p class="text-dark">Takvim entegrasyonu yapılacak.</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h5 class="text-secondary">Rezervasyon Formu</h5>
+            <form class="row g-3 needs-validation" novalidate>
+                <div class="col-md-6">
+                    <label for="firstName" class="form-label text-dark">Ad</label>
+                    <input type="text" class="form-control" id="firstName" required>
+                    <div class="invalid-feedback">
+                        Lütfen adınızı girin.
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="lastName" class="form-label text-dark">Soyad</label>
+                    <input type="text" class="form-control" id="lastName" required>
+                    <div class="invalid-feedback">
+                        Lütfen soyadınızı girin.
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label for="phone" class="form-label text-dark">Telefon</label>
+                    <input type="tel" class="form-control" id="phone" required pattern="[0-9]{10}">
+                    <div class="invalid-feedback">
+                        Lütfen geçerli bir telefon numarası girin.
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label for="email" class="form-label text-dark">E-posta</label>
+                    <input type="email" class="form-control" id="email" required>
+                    <div class="invalid-feedback">
+                        Lütfen geçerli bir e-posta adresi girin.
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label for="service" class="form-label text-dark">İşlem Seçimi</label>
+                    <select class="form-select" id="service" required>
+                        <option value="" selected disabled>Bir işlem seçin</option>
+                        <option value="balayage">Balayaj</option>
+                        <option value="keratin">Keratin Bakım</option>
+                        <option value="botox">Saç Botoksu</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Lütfen bir işlem seçin.
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label for="datetime" class="form-label text-dark">Tarih ve Saat</label>
+                    <input type="datetime-local" class="form-control" id="datetime" required>
+                    <div class="invalid-feedback">
+                        Lütfen tarih ve saat seçin.
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-accent">Rezervasyon Yap</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Image Modal
+    function openImage(src) {
+        const modal = document.createElement('div');
+        modal.classList.add('image-modal');
+        modal.innerHTML = `<img src="${src}" class="img-fluid">`;
+
+        document.body.appendChild(modal);
+
+        modal.addEventListener('click', () => {
+            document.body.removeChild(modal);
+        });
+    }
+
+    // Form Validation
+    (() => {
+        'use strict';
+
+        const forms = document.querySelectorAll('.needs-validation');
+
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+
+                form.classList.add('was-validated');
+            }, false);
+        });
+    })();
+</script>
+
+<!-- Bootstrap Icons CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+    /* General Styling */
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #212529; /* Dark text color */
+        background-color: #f8f9fa; /* Light background color */
+    }
+
+    .container {
+        max-width: 1200px;
+    }
+
+    /* Color Palette */
+    .text-gold {
+        color: #d4af37; /* Gold - used for headings */
+    }
+
+    .text-secondary {
+        color: #6c757d; /* Medium grey - used for less important text */
+    }
+
+    .text-dark {
+        color: #212529; /* Dark text color */
+    }
+
+    .btn-accent {
+        background-color: #d4af37; /* Gold - used for buttons */
+        border-color: #d4af37;
+        color: #f8f9fa; /* Light text on buttons */
+    }
+
+        .btn-accent:hover {
+            background-color: #b8860b; /* Darker Gold for hover effect */
+            border-color: #b8860b;
+        }
+
+    /* Hero Section */
+    .hero-section {
+        background-color: #ffffff; /* Light background */
+        padding: 4rem 2rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+        .hero-section h1 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section p {
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-section .btn-accent {
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+    /* About Section */
+    .about-section h4 {
+        margin-bottom: 1.5rem;
+    }
+
+    /* Gallery */
+    .gallery-image {
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+    }
+
+        .gallery-image:hover {
+            transform: scale(1.05);
+        }
+
+    /* Image Modal */
+    .image-modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+        .image-modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 0.5rem;
+        }
+
+    /* Services Section */
+    .services-section h4 {
+        margin-bottom: 2rem;
+    }
+
+    .table thead th {
+        background-color: #d4af37; /* Gold background for table header */
+        border-bottom: 2px solid #b8860b; /* Darker gold border */
+        color: #ffffff;
+    }
+
+    .table tbody tr:nth-of-type(odd) {
+        background-color: rgba(212, 175, 55, 0.1); /* Very light, transparent gold for odd rows */
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: rgba(212, 175, 55, 0.2); /* Slightly more opaque gold on hover */
+    }
+
+    /* Booking Section */
+    .booking-section h4 {
+        margin-bottom: 2rem;
+    }
+
+    .calendar-container {
+        background-color: #ffffff;
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-label {
+        font-weight: 600;
+    }
+
+    .form-control,
+    .form-select {
+        border: 1px solid #d4af37;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.3rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        background-color: #ffffff;
+        color: #212529;
+    }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: #b8860b;
+            outline: 0;
+            box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+        }
+
+    .btn-accent {
+        padding: 0.6rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .invalid-feedback {
+        color: #dc3545;
+        font-size: 0.9rem;
+    }
+</style>

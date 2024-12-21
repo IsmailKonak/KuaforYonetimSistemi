@@ -1,0 +1,182 @@
+﻿@* Views/Home/Kullanici_Profil.cshtml *@
+@{
+    ViewData["Title"] = "Profilim";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Genel layout kullanılacak
+}
+
+<section id="profile-header" class="mt-4">
+    <div class="container">
+        <h1 class="text-center">Hesabım</h1>
+        <p class="text-center">Merhaba, [Kullanıcı Adı]! Buradan hesabını güncelleyebilirsin.</p> @* Dinamik olarak kullanıcı adı gelecek *@
+    </div>
+</section>
+
+<section id="user-info" class="mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Kullanıcı Bilgileri</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label">Ad</label>
+                        <input type="text" class="form-control" id="firstName" value="[Ad]"> @* Dinamik olarak kullanıcı adı gelecek *@
+                    </div>
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label">Soyad</label>
+                        <input type="text" class="form-control" id="lastName" value="[Soyad]"> @* Dinamik olarak kullanıcı soyadı gelecek *@
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-posta</label>
+                        <input type="email" class="form-control" id="email" value="[E-posta]"> @* Dinamik olarak kullanıcı e-postası gelecek *@
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Telefon</label>
+                        <input type="tel" class="form-control" id="phone" value="[Telefon]"> @* Dinamik olarak kullanıcı telefonu gelecek *@
+                    </div>
+                    <button type="submit" class="btn btn-primary">Güncelle</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h2>Şifre Değiştir</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="currentPassword" class="form-label">Mevcut Şifre</label>
+                        <input type="password" class="form-control" id="currentPassword">
+                    </div>
+                    <div class="mb-3">
+                        <label for="newPassword" class="form-label">Yeni Şifre</label>
+                        <input type="password" class="form-control" id="newPassword">
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmNewPassword" class="form-label">Yeni Şifre Tekrar</label>
+                        <input type="password" class="form-control" id="confirmNewPassword">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Şifre Değiştir</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="favourites" class="mt-4">
+    <div class="container">
+        <h2>Favori Kuaförler</h2>
+        <div class="row">
+            @* Örnek favori kuaför kartı *@
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <img src="https://via.placeholder.com/100" class="card-img-top" alt="Kuaför Adı">
+                    <div class="card-body">
+                        <h5 class="card-title">Kuaför Adı</h5>
+                        <p class="card-text">Lokasyon</p>
+                        <p class="card-text">Puan: 4.5/5</p> @* Varsa puan bilgisi *@
+                        <button class="btn btn-outline-danger btn-sm">Favorilerden Kaldır</button>
+                    </div>
+                </div>
+            </div>
+            @* Diğer favori kuaförler için benzer kartlar *@
+        </div>
+        @* Eğer favori kuaför yoksa gösterilecek mesaj *@
+        <div class="alert alert-info" role="alert">
+            Henüz favori kuaförünüz bulunmamaktadır.
+        </div>
+    </div>
+</section>
+
+<section id="reservations" class="mt-4">
+    <div class="container">
+        <h2>Kayıtlı Randevular</h2>
+        <ul class="nav nav-tabs" id="reservationsTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="future-tab" data-bs-toggle="tab" data-bs-target="#future" type="button" role="tab" aria-controls="future" aria-selected="true">
+                    Gelecek Randevular
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="past-tab" data-bs-toggle="tab" data-bs-target="#past" type="button" role="tab" aria-controls="past" aria-selected="false">
+                    Geçmiş Randevular
+                </button>
+            </li>
+        </ul>
+        <div class="tab-content" id="reservationsTabContent">
+            <div class="tab-pane fade show active" id="future" role="tabpanel" aria-labelledby="future-tab">
+                <table class="table table-striped mt-3">
+                    <thead>
+                        <tr>
+                            <th>Tarih</th>
+                            <th>Saat</th>
+                            <th>Kuaför</th>
+                            <th>Hizmet</th>
+                            <th>Durum</th>
+                            <th>İşlem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @* Örnek gelecek randevu *@
+                        <tr>
+                            <td>2024-03-20</td>
+                            <td>10:00</td>
+                            <td>Kuaför A</td>
+                            <td>Saç Kesimi</td>
+                            <td>Onaylandı</td>
+                            <td>
+                                <button class="btn btn-outline-secondary btn-sm">Tarih Değiştir</button>
+                                <button class="btn btn-outline-danger btn-sm">İptal Et</button>
+                            </td>
+                        </tr>
+                        @* ... Diğer gelecek randevular *@
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="past" role="tabpanel" aria-labelledby="past-tab">
+                <table class="table table-striped mt-3">
+                    <thead>
+                        <tr>
+                            <th>Tarih</th>
+                            <th>Saat</th>
+                            <th>Kuaför</th>
+                            <th>Hizmet</th>
+                            <th>Durum</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @* Örnek geçmiş randevu *@
+                        <tr>
+                            <td>2024-02-15</td>
+                            <td>14:30</td>
+                            <td>Kuaför B</td>
+                            <td>Manikür</td>
+                            <td>Tamamlandı</td>
+                        </tr>
+                        @* ... Diğer geçmiş randevular *@
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Şifre değiştirme formu için örnek doğrulama (sadece front-end)
+            $('#user-info form:eq(1)').submit(function (event) {
+                event.preventDefault(); // Sayfanın yenilenmesini engelle
+
+                var currentPassword = $('#currentPassword').val();
+                var newPassword = $('#newPassword').val();
+                var confirmNewPassword = $('#confirmNewPassword').val();
+
+                if (newPassword !== confirmNewPassword) {
+                    alert("Yeni şifre ve tekrarı uyuşmuyor!");
+                    return;
+                }
+
+                // Burada şifre değiştirme işlemi için AJAX isteği gönderilebilir
+                // ...
+
+                alert("Şifre değiştirme işlemi başarılı."); // Şimdilik sadece bir uyarı mesajı
+            });
+        });
+    </script>
+}

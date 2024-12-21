@@ -1,0 +1,168 @@
+﻿@{
+    ViewData["Title"] = "Giriş Yap / Kayıt Ol";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg rounded-3">
+                <div class="card-body p-5">
+                    <ul class="nav nav-pills nav-fill mb-4" id="loginSignupTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active w-100" id="login-tab" data-bs-toggle="pill" data-bs-target="#login" type="button" role="tab" aria-controls="login" aria-selected="true">Giriş Yap</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link w-100" id="signup-tab" data-bs-toggle="pill" data-bs-target="#signup" type="button" role="tab" aria-controls="signup" aria-selected="false">Kayıt Ol</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="loginSignupTabsContent">
+                        <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                            <h4 class="text-center text-gold mb-4">Müşteri Girişi</h4>
+                            <form asp-action="Login" method="post" asp-controller="Home">
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control" id="loginEmail" placeholder="name@example.com">
+                                    <label for="loginEmail">E-posta</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="password" class="form-control" id="loginPassword" placeholder="Password">
+                                    <label for="loginPassword">Şifre</label>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-accent">Giriş Yap</button>
+                                </div>
+                                <div class="mt-3 text-center">
+                                    <a asp-controller="Home" asp-action="ForgotPassword" class="text-secondary">Şifremi Unuttum</a>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
+                            <h4 class="text-center text-gold mb-4">Müşteri Kaydı</h4>
+                            <form asp-controller="Home" asp-action="Signup" method="post">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="firstName" placeholder="Adınız">
+                                    <label for="firstName">Ad</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="lastName" placeholder="Soyadınız">
+                                    <label for="lastName">Soyad</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control" id="signupEmail" placeholder="name@example.com">
+                                    <label for="signupEmail">E-posta</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="password" class="form-control" id="signupPassword" placeholder="Password">
+                                    <label for="signupPassword">Şifre</label>
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input type="checkbox" class="form-check-input" id="acceptTerms">
+                                    <label class="form-check-label" for="acceptTerms">
+                                        <a href="#" class="text-secondary">Kullanıcı Sözleşmesi</a> ve <a href="#" class="text-secondary">Gizlilik Politikası</a>'nı kabul ediyorum.
+                                    </label>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-accent">Kayıt Ol</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <p class="text-dark">İşletme misiniz? <a asp-controller="Home" asp-action="BSignup" class="text-gold">Buradan Kayıt Olun</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* General Styling */
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #212529; /* Dark text color */
+        background-color: #f8f9fa; /* Light background color */
+    }
+
+    .container {
+        max-width: 1200px;
+    }
+
+    /* Color Palette */
+    .text-gold {
+        color: #d4af37; /* Gold - used for headings */
+    }
+
+    .text-secondary {
+        color: #6c757d; /* Medium grey - used for less important text */
+    }
+
+    .text-dark {
+        color: #212529; /* Dark text color */
+    }
+
+    .btn-accent {
+        background-color: #d4af37; /* Gold - used for buttons */
+        border-color: #d4af37;
+        color: #f8f9fa; /* Light text on buttons */
+    }
+
+        .btn-accent:hover {
+            background-color: #b8860b; /* Darker Gold for hover effect */
+            border-color: #b8860b;
+        }
+
+    /* Form Styling */
+    .form-control {
+        border: 1px solid #d4af37;
+        background-color: #ffffff;
+        color: #212529;
+    }
+
+        .form-control:focus {
+            border-color: #b8860b;
+            box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+        }
+
+    .form-check-input:checked {
+        background-color: #d4af37;
+        border-color: #d4af37;
+    }
+
+    .form-check-input:focus {
+        border-color: #b8860b;
+        box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+    }
+
+    .form-floating > label {
+        color: #6c757d;
+    }
+
+    /* Card Styling */
+    .card {
+        border: none;
+    }
+
+    /* Tabs Styling */
+    .nav-pills .nav-link {
+        background-color: #f8f9fa;
+        color: #212529;
+        border: 1px solid #d4af37;
+    }
+
+        .nav-pills .nav-link.active {
+            background-color: #d4af37;
+            color: #f8f9fa;
+        }
+
+            .nav-pills .nav-link.active:hover {
+                background-color: #b8860b;
+                border-color: #b8860b;
+                color: #f8f9fa;
+            }
+
+        .nav-pills .nav-link:hover {
+            background-color: #b8860b;
+            border-color: #b8860b;
+            color: #f8f9fa;
+        }
+</style>

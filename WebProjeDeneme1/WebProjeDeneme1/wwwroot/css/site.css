@@ -1,0 +1,146 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+/* Navbar Styling */
+.navbar {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+    background-color: #121212; /* Dark background */
+}
+
+.nav-link {
+    font-size: 1rem;
+    margin-right: 1rem;
+    transition: color 0.3s ease;
+}
+
+    .nav-link:hover {
+        color: #d4af37 !important; /* Gold hover */
+    }
+
+/* Booking Button Styling */
+.btn-warning {
+    background-color: #d4af37;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-warning:hover {
+        background-color: #b8860b !important; /* Darker Gold */
+    }
+
+/* Search Bar Styling */
+.form-control {
+    background-color: #1c1c1c;
+    color: #fff;
+    border: 1px solid #555;
+}
+
+    .form-control::placeholder {
+        color: #aaa; /* Placeholder text color */
+    }
+
+.btn-outline-light {
+    border-color: #d4af37;
+    color: #d4af37;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+    .btn-outline-light:hover {
+        background-color: #d4af37;
+        color: #121212; /* Dark text on hover */
+    }
+
+/* Dropdown Hover Behavior */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block !important; /* Show dropdown on hover */
+}
+
+.dropdown-menu {
+    background-color: #1c1c1c; /* Dark background */
+    border: none;
+    padding: 1.5rem;
+    width: 100%; /* Full-width dropdown */
+    position: absolute;
+    left: 0; /* Align dropdown to the left edge */
+}
+
+    .dropdown-menu a {
+        color: #f5f5f5; /* Light text */
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+        .dropdown-menu a:hover {
+            color: #d4af37; /* Gold text on hover */
+        }
+
+    /* Dropdown Images */
+    .dropdown-menu img {
+        width: 100%; /* Responsive images */
+        max-width: 150px; /* Fixed image size */
+        margin-bottom: 0.5rem;
+        border: 2px solid transparent;
+        border-radius: 8px; /* Rounded corners */
+        transition: border-color 0.3s ease;
+    }
+
+        .dropdown-menu img:hover {
+            border-color: #d4af37; /* Gold border on hover */
+        }
+
+    /* Dropdown Headings */
+    .dropdown-menu h6 {
+        color: #d4af37; /* Gold text for titles */
+        margin-top: 0.5rem;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+
+
+
+/* Footer Styles */
+body > * {
+    flex: 1; /* Pushes content to fill the space */
+}
+
+footer {
+    background-color: #121212; /* Charcoal color */
+    color: #f5f5f5; /* Light text */
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 0.5rem 0; /* Thin footer */
+    margin-top: auto; /* Sticks footer to the bottom */
+}
+
+#sidebar {
+    min-height: 100vh; /* Sidebar'ýn tam ekran yüksekliðinde olmasý için */
+}
+
+    #sidebar .nav-link {
+        color: #333;
+    }
+
+        #sidebar .nav-link.active {
+            color: #0d6efd; /* Aktif menü öðesi rengi */
+            background-color: #e9ecef;
+        }

@@ -1,0 +1,273 @@
+﻿@* Views/Home/İşletmem_Dashboard.cshtml *@
+@{
+    ViewData["Title"] = "İşletmem - Genel Bakış";
+    Layout = "~/Views/Shared/_IsletmemLayout.cshtml";
+}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Salon Bilgileri</h1>
+</div>
+
+@* Salon Bilgileri Düzenleme Formu *@
+<form>
+    <div class="row">
+        <div class="col-md-7">
+            <h4 class="text-gold">Salon Adı</h4>
+            <input type="text" class="form-control" value="Elite Kuaför Salonu" /> @* Düzenlenebilir alan *@
+
+            <p class="lead text-dark mt-3">
+                <span class="text-muted">Açıklama:</span>
+                <textarea class="form-control">Modern ve yenilikçi saç tasarımları, kişiye özel bakım hizmetleriyle Elite Kuaför Salonu, güzelliğinizi ortaya çıkarıyor.</textarea> @* Düzenlenebilir alan *@
+            </p>
+            <p class="text-dark">
+                <span class="text-muted">Adres:</span>
+                <input type="text" class="form-control" value="Bağdat Caddesi No:35, Kadıköy, İstanbul" /> @* Düzenlenebilir alan *@
+            </p>
+            <p class="text-dark">
+                <span class="text-muted">Telefon:</span>
+                <input type="tel" class="form-control" value="+90 212 555 1212" /> @* Düzenlenebilir alan *@
+            </p>
+            <p class="text-dark">
+                <span class="text-muted">E-posta:</span>
+                <input type="email" class="form-control" value="elitekuafor@example.com" /> @* Düzenlenebilir alan *@
+            </p>
+        </div>
+        <div class="col-md-5">
+            <h4 class="text-gold">Dış Görünüm</h4>
+            <input type="file" class="form-control" />
+            <img src="/images/Berber Muharrem.jpg" class="img-fluid rounded-3 shadow-lg mt-2" alt="Elite Kuaför Dış Görünüm">
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Değişiklikleri Kaydet</button>
+</form>
+
+<hr class="my-5" />
+
+@* Çalışma Saatleri *@
+<div class="row mt-4">
+    <div class="col-12">
+        <h4 class="text-gold mb-4 text-center">Çalışma Saatleri</h4>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">Gün</th>
+                        <th scope="col">Açılış</th>
+                        <th scope="col">Kapanış</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var day in new[] { "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma" })
+                    {
+                        <tr>
+                            <td>@day</td>
+                            <td>
+                                <input type="time" class="form-control form-control-sm" value="09:00" /> @* Düzenlenebilir alan *@
+                            </td>
+                            <td>
+                                <input type="time" class="form-control form-control-sm" value="21:00" /> @* Düzenlenebilir alan *@
+                            </td>
+                        </tr>
+                    }
+                    @foreach (var day in new[] { "Cumartesi", "Pazar" })
+                    {
+                        <tr>
+                            <td>@day</td>
+                            <td>
+                                <input type="time" class="form-control form-control-sm" value="10:00" /> @* Düzenlenebilir alan *@
+                            </td>
+                            <td>
+                                <input type="time" class="form-control form-control-sm" value="19:00" /> @* Düzenlenebilir alan *@
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <button type="submit" class="btn btn-primary">Çalışma Saatlerini Kaydet</button>
+        </div>
+    </div>
+</div>
+
+<hr class="my-5" />
+
+@* Hizmet Listesi *@
+<div class="row mt-4">
+    <div class="col-12">
+        <h4 class="text-gold mb-4 text-center">Hizmet Listesi</h4>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="table-light">
+                    <tr>
+                        <th scope="col">İşlem Türü</th>
+                        <th scope="col">Fiyat</th>
+                        <th scope="col">Süre</th>
+                        <th scope="col">Uzmanlar</th>
+                        <th scope="col">İşlemler</th> @* Yeni sütun *@
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Balayaj</td>
+                        <td>
+                            <input type="text" class="form-control form-control-sm" value="500 TL" /> @* Düzenlenebilir alan *@
+                        </td>
+                        <td>
+                            <input type="text" class="form-control form-control-sm" value="120 dakika" /> @* Düzenlenebilir alan *@
+                        </td>
+                        <td>Ayşe, Melis</td>
+                        <td>
+                            @* İşlemler sütunu için butonlar *@
+                            <button class="btn btn-sm btn-outline-primary">Düzenle</button>
+                            <button class="btn btn-sm btn-outline-danger">Sil</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Keratin Bakım</td>
+                        <td>
+                            <input type="text" class="form-control form-control-sm" value="400 TL" /> @* Düzenlenebilir alan *@
+                        </td>
+                        <td>
+                            <input type="text" class="form-control form-control-sm" value="90 dakika" /> @* Düzenlenebilir alan *@
+                        </td>
+                        <td>Ahmet, Ceren</td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-primary">Düzenle</button>
+                            <button class="btn btn-sm btn-outline-danger">Sil</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Saç Botoksu</td>
+                        <td>
+                            <input type="text" class="form-control form-control-sm" value="450 TL" /> @* Düzenlenebilir alan *@
+                        </td>
+                        <td>
+                            <input type="text" class="form-control form-control-sm" value="80 dakika" /> @* Düzenlenebilir alan *@
+                        </td>
+                        <td>Mehmet, Ayşe</td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-primary">Düzenle</button>
+                            <button class="btn btn-sm btn-outline-danger">Sil</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addServiceModal">
+                Yeni Hizmet Ekle
+            </button>
+        </div>
+    </div>
+</div>
+
+@* Yeni Hizmet Ekleme Modalı *@
+<div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addServiceModalLabel">Yeni Hizmet Ekle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @* Hizmet ekleme formu *@
+                <form>
+                    <div class="mb-3">
+                        <label for="serviceName" class="form-label">Hizmet Adı</label>
+                        <input type="text" class="form-control" id="serviceName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="servicePrice" class="form-label">Fiyat</label>
+                        <input type="text" class="form-control" id="servicePrice">
+                    </div>
+                    <div class="mb-3">
+                        <label for="serviceDuration" class="form-label">Süre</label>
+                        <input type="text" class="form-control" id="serviceDuration">
+                    </div>
+                    <div class="mb-3">
+                        <label for="serviceExperts" class="form-label">Uzmanlar</label>
+                        <input type="text" class="form-control" id="serviceExperts">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                <button type="button" class="btn btn-primary">Hizmeti Ekle</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* Galerimiz *@
+<div class="row mt-4">
+    <div class="col-md-12">
+        <h4 class="text-gold mb-3 text-center">Galerimiz</h4>
+        <div class="row g-2">
+            <div class="col-6 col-md-3">
+                <label for="image1" class="form-label">İç Görünüm 1</label> @* Etiket eklendi *@
+                <input type="file" class="form-control" id="image1" /> @* Dosya yükleme alanı *@
+                <img src="/images/icarditras.jpg" class="img-fluid rounded-3 shadow-sm gallery-image mt-2" alt="İç Görünüm" onclick="openImage(this.src)">
+            </div>
+            <div class="col-6 col-md-3">
+                <label for="image2" class="form-label">İç Görünüm 2</label> @* Etiket eklendi *@
+                <input type="file" class="form-control" id="image2" /> @* Dosya yükleme alanı *@
+                <img src="/images/Gandhitiras.jpg" class="img-fluid rounded-3 shadow-sm gallery-image mt-2" alt="İç Görünüm" onclick="openImage(this.src)">
+            </div>
+            <div class="col-6 col-md-3">
+                <label for="image3" class="form-label">Müşteri Hizmeti 1</label> @* Etiket eklendi *@
+                <input type="file" class="form-control" id="image3" /> @* Dosya yükleme alanı *@
+                <img src="/images/stromaetiras.jpg" class="img-fluid rounded-3 shadow-sm gallery-image mt-2" alt="Müşteri Hizmeti" onclick="openImage(this.src)">
+            </div>
+            <div class="col-6 col-md-3">
+                <label for="image4" class="form-label">Müşteri Hizmeti 2</label> @* Etiket eklendi *@
+                <input type="file" class="form-control" id="image4" /> @* Dosya yükleme alanı *@
+                <img src="/images/cekiktiras.jpg" class="img-fluid rounded-3 shadow-sm gallery-image mt-2" alt="Müşteri Hizmeti" onclick="openImage(this.src)">
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary mt-3">Değişiklikleri Kaydet</button>
+    </div>
+</div>
+
+<script>
+    // Image Modal
+    function openImage(src) {
+        const modal = document.createElement('div');
+        modal.classList.add('image-modal');
+        modal.innerHTML = `<img src="${src}" class="img-fluid">`;
+
+        document.body.appendChild(modal);
+
+        modal.addEventListener('click', () => {
+            document.body.removeChild(modal);
+        });
+    }
+
+</script>
+
+@section Scripts {
+    <script>
+        // Hizmet Silme İşlemi (Örnek)
+        $(document).ready(function () {
+            $('.btn-outline-danger').click(function () {
+                // Silinecek satırı bul
+                var row = $(this).closest('tr');
+
+                // Silme işlemini onayla
+                if (confirm('Bu hizmeti silmek istediğinizden emin misiniz?')) {
+                    // AJAX ile silme isteği gönder (örnek)
+                    $.ajax({
+                        url: '/Home/DeleteService', // Silme işlemini yapacak action
+                        method: 'POST',
+                        data: { serviceId: row.find('td:first').text() }, // Silinecek hizmetin ID'si (örnek)
+                        success: function (result) {
+                            // Başarılı olursa satırı tablodan kaldır
+                            row.remove();
+                            alert('Hizmet başarıyla silindi.');
+                        },
+                        error: function () {
+                            alert('Hizmet silinirken bir hata oluştu.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+}

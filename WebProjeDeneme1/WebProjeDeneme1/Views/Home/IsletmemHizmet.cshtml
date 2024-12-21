@@ -1,0 +1,263 @@
+﻿@* Views/Home/İşletmem_HizmetFiyat.cshtml *@
+@{
+    ViewData["Title"] = "İşletmem - Hizmet & Fiyat Yönetimi";
+    Layout = "~/Views/Shared/_IsletmemLayout.cshtml";
+}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Hizmet & Fiyat Yönetimi</h1>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Hizmet Adı</th>
+                <th>Fiyat</th>
+                <th>Süre (dk)</th>
+                <th>Çalışanlar</th> @* Çalışanlar sütunu eklendi *@
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            @* Örnek Hizmetler *@
+            <tr>
+                <td>1</td>
+                <td>Saç Kesimi</td>
+                <td>150 TL</td>
+                <td>30</td>
+                <td>Ayşe D., Mehmet Y.</td> @* Çalışanlar (şimdilik manuel) *@
+                <td>
+                    <button class="btn btn-sm btn-outline-primary edit-service">Düzenle</button>
+                    <button class="btn btn-sm btn-outline-danger">Sil</button>
+                    <span class="edit-service-span" style="display: none;">
+                        <form class="mt-2">
+                            <div class="mb-2">
+                                <label for="editServiceName" class="form-label">Hizmet Adı:</label>
+                                <input type="text" class="form-control form-control-sm" id="editServiceName" value="Saç Kesimi">
+                            </div>
+                            <div class="mb-2">
+                                <label for="editServicePrice" class="form-label">Fiyat:</label>
+                                <input type="text" class="form-control form-control-sm" id="editServicePrice" value="150 TL">
+                            </div>
+                            <div class="mb-2">
+                                <label for="editServiceDuration" class="form-label">Süre (dk):</label>
+                                <input type="number" class="form-control form-control-sm" id="editServiceDuration" value="30">
+                            </div>
+                            <div class="mb-2">
+                                <label for="editServiceEmployees" class="form-label">Çalışanlar:</label>
+                                <select class="form-select form-select-sm" id="editServiceEmployees" multiple>
+                                    @* Çalışanlar dinamik olarak yüklenecek *@
+                                    <option value="1">Ayşe D.</option>
+                                    <option value="2">Mehmet Y.</option>
+                                    <option value="3">Fatma K.</option>
+                                    @* ... Diğer çalışanlar *@
+                                </select>
+                            </div>
+                            <button type="button" class="btn btn-sm btn-success save-service">Kaydet</button>
+                            <button type="button" class="btn btn-sm btn-secondary cancel-edit-service">İptal</button>
+                        </form>
+                    </span>
+                </td>
+            </tr>
+            @* ... Diğer hizmetler için benzer yapı *@
+        </tbody>
+    </table>
+</div>
+
+<button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addServiceModal">
+    Yeni Hizmet Ekle
+</button>
+
+@* Yeni Hizmet Ekleme Modalı *@
+<div class="modal fade" id="addServiceModal" tabindex="-1" aria-labelledby="addServiceModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addServiceModalLabel">Yeni Hizmet Ekle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="newServiceName" class="form-label">Hizmet Adı</label>
+                        <input type="text" class="form-control" id="newServiceName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="newServicePrice" class="form-label">Fiyat</label>
+                        <input type="text" class="form-control" id="newServicePrice">
+                    </div>
+                    <div class="mb-3">
+                        <label for="newServiceDuration" class="form-label">Süre (dk)</label>
+                        <input type="number" class="form-control" id="newServiceDuration">
+                    </div>
+                    <div class="mb-3">
+                        <label for="newServiceCategory" class="form-label">Kategori</label>
+                        <select class="form-select" id="newServiceCategory">
+                            <option value="Saç">Saç</option>
+                            <option value="Tırnak">Tırnak</option>
+                            <option value="Cilt">Cilt</option>
+                            @* ... Diğer kategoriler *@
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="newServiceEmployees" class="form-label">Çalışanlar</label>
+                        <select class="form-select" id="newServiceEmployees" multiple>
+                            @* Çalışanlar dinamik olarak yüklenecek *@
+                            <option value="1">Ayşe D.</option>
+                            <option value="2">Mehmet Y.</option>
+                            <option value="3">Fatma K.</option>
+                            @* ... Diğer çalışanlar *@
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                <button type="button" class="btn btn-primary">Hizmeti Ekle</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Hizmet Silme İşlemi (Örnek)
+            $('.btn-outline-danger').click(function () {
+                var row = $(this).closest('tr');
+                if (confirm('Bu hizmeti silmek istediğinizden emin misiniz?')) {
+                    $.ajax({
+                        url: '/Home/DeleteService',
+                        method: 'POST',
+                        data: { serviceId: row.find('td:first').text() },
+                        success: function (result) {
+                            row.remove();
+                            alert('Hizmet başarıyla silindi.');
+                        },
+                        error: function () {
+                            alert('Hizmet silinirken bir hata oluştu.');
+                        }
+                    });
+                }
+            });
+
+            // Hizmet Düzenleme İşlemi
+            $('.edit-service').click(function () {
+                var row = $(this).closest('tr');
+                row.find('.edit-service-span').show();
+                $(this).hide();
+                row.find('.btn-outline-danger').hide();
+
+                // Çalışanları yükle (AJAX)
+                var employeeSelect = row.find('#editServiceEmployees');
+                $.ajax({
+                    url: '/Home/GetEmployees', // Çalışanları getiren action
+                    method: 'GET',
+                    success: function (employees) {
+                        employeeSelect.empty(); // Mevcut seçenekleri temizle
+                        $.each(employees, function (index, employee) {
+                            employeeSelect.append($('<option>', {
+                                value: employee.id,
+                                text: employee.name
+                            }));
+                        });
+                    },
+                    error: function () {
+                        alert('Çalışanlar yüklenirken bir hata oluştu.');
+                    }
+                });
+            });
+
+            // Düzenlemeyi Kaydetme İşlemi
+            $('.save-service').click(function () {
+                var row = $(this).closest('tr');
+                var serviceId = row.find('td:first').text();
+                var name = row.find('#editServiceName').val();
+                var price = row.find('#editServicePrice').val();
+                var duration = row.find('#editServiceDuration').val();
+                var category = row.find('#editServiceCategory').val();
+                var selectedEmployees = row.find('#editServiceEmployees').val(); // Seçili çalışanlar
+
+                $.ajax({
+                    url: '/Home/UpdateService',
+                    method: 'POST',
+                    data: {
+                        serviceId: serviceId,
+                        name: name,
+                        price: price,
+                        duration: duration,
+                        category: category,
+                        employeeIds: selectedEmployees // Seçili çalışan ID'lerini gönder
+                    },
+                    success: function (result) {
+                        row.find('td:eq(1)').text(name);
+                        row.find('td:eq(2)').text(price);
+                        row.find('td:eq(3)').text(duration);
+                        row.find('td:eq(4)').text(category);
+                        // Seçili çalışanları güncelle (şimdilik basit bir şekilde)
+                        row.find('td:eq(5)').text(selectedEmployees.join(', '));
+
+                        row.find('.edit-service-span').hide();
+                        row.find('.edit-service').show();
+                        row.find('.btn-outline-danger').show();
+                        alert('Hizmet başarıyla güncellendi.');
+                    },
+                    error: function () {
+                        alert('Hizmet güncellenirken bir hata oluştu.');
+                    }
+                });
+            });
+
+            // Düzenlemeyi İptal Etme İşlemi
+            $('.cancel-edit-service').click(function () {
+                var row = $(this).closest('tr');
+                row.find('.edit-service-span').hide();
+                row.find('.edit-service').show();
+                row.find('.btn-outline-danger').show();
+            });
+
+            // Yeni Hizmet Ekleme İşlemi (Örnek)
+            $('#addServiceModal .btn-primary').click(function () {
+                var name = $('#newServiceName').val();
+                var price = $('#newServicePrice').val();
+                var duration = $('#newServiceDuration').val();
+                var category = $('#newServiceCategory').val();
+                var selectedEmployees = $('#newServiceEmployees').val(); // Seçili çalışanlar
+
+                $.ajax({
+                    url: '/Home/AddService',
+                    method: 'POST',
+                    data: { name: name, price: price, duration: duration, category: category, employeeIds: selectedEmployees },
+                    success: function (result) {
+                        $('#addServiceModal').modal('hide');
+                        location.reload();
+                        alert('Hizmet başarıyla eklendi.');
+                    },
+                    error: function () {
+                        alert('Hizmet eklenirken bir hata oluştu.');
+                    }
+                });
+            });
+
+            // Sayfa yüklendiğinde çalışanları yükle (yeni hizmet ekleme modalı için)
+            $.ajax({
+                url: '/Home/GetEmployees',
+                method: 'GET',
+                success: function (employees) {
+                    var employeeSelect = $('#newServiceEmployees'); // Yeni hizmet ekleme modalındaki select
+                    $.each(employees, function (index, employee) {
+                        employeeSelect.append($('<option>', {
+                            value: employee.id,
+                            text: employee.name
+                        }));
+                    });
+                },
+                error: function () {
+                    alert('Çalışanlar yüklenirken bir hata oluştu.');
+                }
+            });
+        });
+    </script>
+}
