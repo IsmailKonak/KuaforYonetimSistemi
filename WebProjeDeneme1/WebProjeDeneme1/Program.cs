@@ -1,27 +1,41 @@
+﻿using Microsoft.EntityFrameworkCore;
+using WebProjeDeneme1.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// PostgreSQL bağlantısını ekle
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
+
+// MVC yapılandırmasını ekle
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+// Ortam kontrolü: Development mı, Production mı?
+if (app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    app.UseDeveloperExceptionPage(); // Geliştirme ortamı için detaylı hata sayfası
+}
+else
+{
+    app.UseExceptionHandler("/Home/Error"); // Üretim ortamında hata sayfası
+    app.UseHsts(); // HTTPS Strict Transport Security
 }
 
+// HTTPS yönlendirmesi ve statik dosyalar
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+// Routing işlemleri
 app.UseRouting();
+app.UseAuthorization(); // Yetkilendirme middleware'i
 
-app.UseAuthorization();
-
+// Varsayılan rota yapılandırması
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+);
 
 app.Run();
