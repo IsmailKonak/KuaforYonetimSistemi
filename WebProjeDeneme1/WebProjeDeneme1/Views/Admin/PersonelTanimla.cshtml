@@ -1,0 +1,43 @@
+﻿@model WebProjeDeneme1.Models.Personeller.Personel
+
+@{
+    ViewData["Title"] = "Personel Tanımla";
+}
+
+<h2>Personel Tanımla</h2>
+
+<form asp-action="PersonelTanimla" method="post">
+    <div class="form-group">
+        <label asp-for="SalonId" class="control-label">Salon</label>
+        <select asp-for="SalonId" class="form-control" asp-items="@(new SelectList(ViewBag.Salonlar, "SalonId", "Konum.KonumAdi"))"></select>
+        <span asp-validation-for="SalonId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="BaslangicSaat" class="control-label">Başlangıç Saati</label>
+        <input asp-for="BaslangicSaat" class="form-control" type="time" />
+        <span asp-validation-for="BaslangicSaat" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="BitisSaat" class="control-label">Bitiş Saati</label>
+        <input asp-for="BitisSaat" class="form-control" type="time" />
+        <span asp-validation-for="BitisSaat" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="UzmanlikAlanlari" class="control-label">Uzmanlık Alanları</label>
+        <select asp-for="UzmanlikAlanlari" class="form-control" asp-items="@(new SelectList(ViewBag.UzmanlikAlanlari, "UzmanlikAlaniId", "UzmanlikAdi"))" multiple="multiple"></select>
+        <span asp-validation-for="UzmanlikAlanlari" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Personel Tanımla" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    @ViewBag.Message
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebProjeDeneme1.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,8 +9,16 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
 
-// MVC yapılandırmasını ekle
+// MVC hizmetlerini ekle
 builder.Services.AddControllersWithViews();
+
+// Cookie Authentication ekle
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Uye/Login";
+        options.LogoutPath = "/Uye/Logout";
+    });
 
 var app = builder.Build();
 
@@ -30,6 +39,7 @@ app.UseStaticFiles();
 
 // Routing işlemleri
 app.UseRouting();
+app.UseAuthentication(); // Kimlik doğrulama middleware'i
 app.UseAuthorization(); // Yetkilendirme middleware'i
 
 // Varsayılan rota yapılandırması

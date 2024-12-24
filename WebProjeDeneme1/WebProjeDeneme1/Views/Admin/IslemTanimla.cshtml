@@ -1,0 +1,43 @@
+﻿@model WebProjeDeneme1.Models.Uzmanlik.YapilabilenIslem
+
+@{
+    ViewData["Title"] = "İşlem Tanımla";
+}
+
+<h2>İşlem Tanımla</h2>
+
+<form asp-action="IslemTanimla" method="post">
+    <div class="form-group">
+        <label asp-for="UzmanlikAlaniId" class="control-label">Uzmanlık Alanı</label>
+        <select asp-for="UzmanlikAlaniId" class="form-control" asp-items="@(new SelectList(ViewBag.Salonlar, "SalonId", "Konum.KonumAdi"))"></select>
+        <span asp-validation-for="UzmanlikAlaniId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="IslemAdi" class="control-label">İşlem Adı</label>
+        <input asp-for="IslemAdi" class="form-control" />
+        <span asp-validation-for="IslemAdi" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="IslemUcreti" class="control-label">İşlem Ücreti</label>
+        <input asp-for="IslemUcreti" class="form-control" type="number" step="0.01" />
+        <span asp-validation-for="IslemUcreti" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="IslemSuresi" class="control-label">İşlem Süresi</label>
+        <input asp-for="IslemSuresi" class="form-control" type="time" />
+        <span asp-validation-for="IslemSuresi" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="İşlem Tanımla" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    @ViewBag.Message
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
