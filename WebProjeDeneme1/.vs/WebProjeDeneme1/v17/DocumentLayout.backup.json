@@ -3,16 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|c:\\users\\tugra\\source\\repos\\kuaforyonetimsistemi\\webprojedeneme1\\webprojedeneme1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|solutionrelative:webprojedeneme1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|c:\\users\\tugra\\source\\repos\\kuaforyonetimsistemi\\webprojedeneme1\\webprojedeneme1\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|solutionrelative:webprojedeneme1\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|c:\\users\\tugra\\source\\repos\\kuaforyonetimsistemi\\webprojedeneme1\\webprojedeneme1\\views\\admin\\islemtanimla.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|solutionrelative:webprojedeneme1\\views\\admin\\islemtanimla.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|c:\\users\\tugra\\source\\repos\\kuaforyonetimsistemi\\webprojedeneme1\\webprojedeneme1\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|solutionrelative:webprojedeneme1\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|c:\\users\\tugra\\source\\repos\\kuaforyonetimsistemi\\webprojedeneme1\\webprojedeneme1\\models\\salonlar\\salon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|solutionrelative:webprojedeneme1\\models\\salonlar\\salon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|c:\\users\\tugra\\source\\repos\\kuaforyonetimsistemi\\webprojedeneme1\\webprojedeneme1\\models\\uzmanlik\\yapilabilenislem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|solutionrelative:webprojedeneme1\\models\\uzmanlik\\yapilabilenislem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|c:\\users\\tugra\\source\\repos\\kuaforyonetimsistemi\\webprojedeneme1\\webprojedeneme1\\models\\uzmanlik\\uzmanlikalani.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|solutionrelative:webprojedeneme1\\models\\uzmanlik\\uzmanlikalani.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|c:\\users\\tugra\\source\\repos\\kuaforyonetimsistemi\\webprojedeneme1\\webprojedeneme1\\views\\admin\\salontanimla.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|solutionrelative:webprojedeneme1\\views\\admin\\salontanimla.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|c:\\users\\tugra\\source\\repos\\kuaforyonetimsistemi\\webprojedeneme1\\webprojedeneme1\\views\\admin\\personeltanimla.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|solutionrelative:webprojedeneme1\\views\\admin\\personeltanimla.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|c:\\users\\tugra\\source\\repos\\kuaforyonetimsistemi\\webprojedeneme1\\webprojedeneme1\\models\\personeller\\personel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|solutionrelative:webprojedeneme1\\models\\personeller\\personel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|c:\\users\\tugra\\source\\repos\\kuaforyonetimsistemi\\webprojedeneme1\\webprojedeneme1\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|solutionrelative:webprojedeneme1\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|c:\\users\\tugra\\source\\repos\\kuaforyonetimsistemi\\webprojedeneme1\\webprojedeneme1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|solutionrelative:webprojedeneme1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|c:\\users\\tugra\\source\\repos\\kuaforyonetimsistemi\\webprojedeneme1\\webprojedeneme1\\controllers\\uyecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,14 +53,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|c:\\users\\tugra\\source\\repos\\kuaforyonetimsistemi\\webprojedeneme1\\webprojedeneme1\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|solutionrelative:webprojedeneme1\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|c:\\users\\tugra\\source\\repos\\kuaforyonetimsistemi\\webprojedeneme1\\webprojedeneme1\\views\\admin\\islemtanimla.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|solutionrelative:webprojedeneme1\\views\\admin\\islemtanimla.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|c:\\users\\tugra\\source\\repos\\kuaforyonetimsistemi\\webprojedeneme1\\webprojedeneme1\\views\\admin\\salontanimla.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|solutionrelative:webprojedeneme1\\views\\admin\\salontanimla.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|c:\\users\\tugra\\source\\repos\\kuaforyonetimsistemi\\webprojedeneme1\\webprojedeneme1\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -55,14 +79,6 @@
       "RelativeMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|solutionrelative:webprojedeneme1\\models\\kullanicilar\\uye.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|c:\\users\\tugra\\source\\repos\\kuaforyonetimsistemi\\webprojedeneme1\\webprojedeneme1\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|solutionrelative:webprojedeneme1\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|c:\\users\\tugra\\source\\repos\\kuaforyonetimsistemi\\webprojedeneme1\\webprojedeneme1\\models\\uzmanlik\\yapilabilenislem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|solutionrelative:webprojedeneme1\\models\\uzmanlik\\yapilabilenislem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|c:\\users\\tugra\\source\\repos\\kuaforyonetimsistemi\\webprojedeneme1\\webprojedeneme1\\models\\randevular\\randevu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|solutionrelative:webprojedeneme1\\models\\randevular\\randevu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -79,18 +95,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|c:\\users\\tugra\\source\\repos\\kuaforyonetimsistemi\\webprojedeneme1\\webprojedeneme1\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|solutionrelative:webprojedeneme1\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|c:\\users\\tugra\\source\\repos\\kuaforyonetimsistemi\\webprojedeneme1\\webprojedeneme1\\models\\personeller\\personel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|solutionrelative:webprojedeneme1\\models\\personeller\\personel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|c:\\users\\tugra\\source\\repos\\kuaforyonetimsistemi\\webprojedeneme1\\webprojedeneme1\\models\\uzmanlik\\uzmanlikalani.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|solutionrelative:webprojedeneme1\\models\\uzmanlik\\uzmanlikalani.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|c:\\users\\tugra\\source\\repos\\kuaforyonetimsistemi\\webprojedeneme1\\webprojedeneme1\\models\\salonlar\\salon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|solutionrelative:webprojedeneme1\\models\\salonlar\\salon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8067B560-FA52-47E7-B41F-997DA1C2F511}|WebProjeDeneme1\\WebProjeDeneme1.csproj|c:\\users\\tugra\\source\\repos\\kuaforyonetimsistemi\\webprojedeneme1\\webprojedeneme1\\models\\salonlar\\konum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -140,11 +144,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 10,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Program.cs",
               "RelativeDocumentMoniker": "WebProjeDeneme1\\Program.cs",
@@ -170,13 +174,26 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "WebProjeDeneme1\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "WebProjeDeneme1\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T16:26:56.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 6,
               "Title": "SalonTanimla.cshtml",
               "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\Admin\\SalonTanimla.cshtml",
               "RelativeDocumentMoniker": "WebProjeDeneme1\\Views\\Admin\\SalonTanimla.cshtml",
               "ToolTip": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\Admin\\SalonTanimla.cshtml",
               "RelativeToolTip": "WebProjeDeneme1\\Views\\Admin\\SalonTanimla.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-12-24T19:46:48.864Z",
               "EditorCaption": ""
@@ -184,58 +201,84 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "IslemTanimla.cshtml",
+              "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\Admin\\IslemTanimla.cshtml",
+              "RelativeDocumentMoniker": "WebProjeDeneme1\\Views\\Admin\\IslemTanimla.cshtml",
+              "ToolTip": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\Admin\\IslemTanimla.cshtml*",
+              "RelativeToolTip": "WebProjeDeneme1\\Views\\Admin\\IslemTanimla.cshtml*",
+              "ViewState": "AgIAABUAAAAAAAAAAAAkwDgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-24T19:47:45.466Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "YapilabilenIslem.cs",
+              "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Models\\Uzmanlik\\YapilabilenIslem.cs",
+              "RelativeDocumentMoniker": "WebProjeDeneme1\\Models\\Uzmanlik\\YapilabilenIslem.cs",
+              "ToolTip": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Models\\Uzmanlik\\YapilabilenIslem.cs",
+              "RelativeToolTip": "WebProjeDeneme1\\Models\\Uzmanlik\\YapilabilenIslem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T15:56:41.04Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "AdminController.cs",
               "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "WebProjeDeneme1\\Controllers\\AdminController.cs",
-              "ToolTip": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "WebProjeDeneme1\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAowEIAAAABAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Controllers\\AdminController.cs*",
+              "RelativeToolTip": "WebProjeDeneme1\\Controllers\\AdminController.cs*",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAwwG4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-24T19:38:42.216Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\Admin\\Index.cshtml",
-              "RelativeDocumentMoniker": "WebProjeDeneme1\\Views\\Admin\\Index.cshtml",
-              "ToolTip": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\Admin\\Index.cshtml",
-              "RelativeToolTip": "WebProjeDeneme1\\Views\\Admin\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-24T19:37:50.343Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\tugra\\Source\\Repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\Uye\\Login.cshtml",
-              "RelativeDocumentMoniker": "WebProjeDeneme1\\Views\\Uye\\Login.cshtml",
-              "ToolTip": "C:\\Users\\tugra\\Source\\Repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\Uye\\Login.cshtml",
-              "RelativeToolTip": "WebProjeDeneme1\\Views\\Uye\\Login.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-24T18:19:07.656Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "WebProjeDeneme1.csproj",
-              "DocumentMoniker": "C:\\Users\\tugra\\Source\\Repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\WebProjeDeneme1.csproj",
-              "RelativeDocumentMoniker": "WebProjeDeneme1\\WebProjeDeneme1.csproj",
-              "ToolTip": "C:\\Users\\tugra\\Source\\Repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\WebProjeDeneme1.csproj",
-              "RelativeToolTip": "WebProjeDeneme1\\WebProjeDeneme1.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-12-22T19:40:16.054Z",
+              "DocumentIndex": 5,
+              "Title": "UzmanlikAlani.cs",
+              "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Models\\Uzmanlik\\UzmanlikAlani.cs",
+              "RelativeDocumentMoniker": "WebProjeDeneme1\\Models\\Uzmanlik\\UzmanlikAlani.cs",
+              "ToolTip": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Models\\Uzmanlik\\UzmanlikAlani.cs",
+              "RelativeToolTip": "WebProjeDeneme1\\Models\\Uzmanlik\\UzmanlikAlani.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T15:56:15.666Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "Salon.cs",
+              "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Models\\Salonlar\\Salon.cs",
+              "RelativeDocumentMoniker": "WebProjeDeneme1\\Models\\Salonlar\\Salon.cs",
+              "ToolTip": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Models\\Salonlar\\Salon.cs",
+              "RelativeToolTip": "WebProjeDeneme1\\Models\\Salonlar\\Salon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T15:57:05.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Personel.cs",
+              "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Models\\Personeller\\Personel.cs",
+              "RelativeDocumentMoniker": "WebProjeDeneme1\\Models\\Personeller\\Personel.cs",
+              "ToolTip": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Models\\Personeller\\Personel.cs",
+              "RelativeToolTip": "WebProjeDeneme1\\Models\\Personeller\\Personel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-22T15:55:58.726Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "UyeController.cs",
               "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Controllers\\UyeController.cs",
               "RelativeDocumentMoniker": "WebProjeDeneme1\\Controllers\\UyeController.cs",
@@ -248,7 +291,59 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 16,
+              "Title": "WebProjeDeneme1.csproj",
+              "DocumentMoniker": "C:\\Users\\tugra\\Source\\Repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\WebProjeDeneme1.csproj",
+              "RelativeDocumentMoniker": "WebProjeDeneme1\\WebProjeDeneme1.csproj",
+              "ToolTip": "C:\\Users\\tugra\\Source\\Repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\WebProjeDeneme1.csproj",
+              "RelativeToolTip": "WebProjeDeneme1\\WebProjeDeneme1.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-12-22T19:40:16.054Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebProjeDeneme1\\Views\\Admin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "WebProjeDeneme1\\Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-24T19:37:50.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PersonelTanimla.cshtml",
+              "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\Admin\\PersonelTanimla.cshtml",
+              "RelativeDocumentMoniker": "WebProjeDeneme1\\Views\\Admin\\PersonelTanimla.cshtml",
+              "ToolTip": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\Admin\\PersonelTanimla.cshtml",
+              "RelativeToolTip": "WebProjeDeneme1\\Views\\Admin\\PersonelTanimla.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAkwDgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-24T20:14:36.692Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\tugra\\Source\\Repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\Uye\\Login.cshtml",
+              "RelativeDocumentMoniker": "WebProjeDeneme1\\Views\\Uye\\Login.cshtml",
+              "ToolTip": "C:\\Users\\tugra\\Source\\Repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\Uye\\Login.cshtml",
+              "RelativeToolTip": "WebProjeDeneme1\\Views\\Uye\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-24T18:19:07.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "WebProjeDeneme1\\Views\\Home\\Index.cshtml",
@@ -261,20 +356,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IslemTanimla.cshtml",
-              "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\Admin\\IslemTanimla.cshtml",
-              "RelativeDocumentMoniker": "WebProjeDeneme1\\Views\\Admin\\IslemTanimla.cshtml",
-              "ToolTip": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\Admin\\IslemTanimla.cshtml",
-              "RelativeToolTip": "WebProjeDeneme1\\Views\\Admin\\IslemTanimla.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-24T19:47:45.466Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 17,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\appsettings.json",
               "RelativeDocumentMoniker": "WebProjeDeneme1\\appsettings.json",
@@ -287,20 +369,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "YapilabilenIslem.cs",
-              "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Models\\Uzmanlik\\YapilabilenIslem.cs",
-              "RelativeDocumentMoniker": "WebProjeDeneme1\\Models\\Uzmanlik\\YapilabilenIslem.cs",
-              "ToolTip": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Models\\Uzmanlik\\YapilabilenIslem.cs",
-              "RelativeToolTip": "WebProjeDeneme1\\Models\\Uzmanlik\\YapilabilenIslem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T15:56:41.04Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 13,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "WebProjeDeneme1\\Controllers\\HomeController.cs",
@@ -313,7 +382,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 15,
               "Title": "Register.cshtml",
               "DocumentMoniker": "C:\\Users\\tugra\\Source\\Repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\Uye\\Register.cshtml",
               "RelativeDocumentMoniker": "WebProjeDeneme1\\Views\\Uye\\Register.cshtml",
@@ -326,20 +395,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "WebProjeDeneme1\\Data\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "WebProjeDeneme1\\Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAA1wCsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T16:26:56.586Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 19,
               "Title": "Randevu.cs",
               "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Models\\Randevular\\Randevu.cs",
               "RelativeDocumentMoniker": "WebProjeDeneme1\\Models\\Randevular\\Randevu.cs",
@@ -352,7 +408,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 18,
               "Title": "Uye.cs",
               "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Models\\Kullanicilar\\Uye.cs",
               "RelativeDocumentMoniker": "WebProjeDeneme1\\Models\\Kullanicilar\\Uye.cs",
@@ -365,7 +421,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 20,
               "Title": "Microsoft.NET.Sdk.ImportWorkloads.props",
               "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\9.0.101\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.ImportWorkloads.props",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.101\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.ImportWorkloads.props",
@@ -378,7 +434,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 23,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "WebProjeDeneme1\\Views\\_ViewImports.cshtml",
@@ -390,7 +446,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 22,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\appsettings.Development.json",
               "RelativeDocumentMoniker": "WebProjeDeneme1\\appsettings.Development.json",
@@ -402,7 +458,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 21,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\tugra\\AppData\\Local\\Temp\\.vsdbgsrc\\322beca6c653df40fb7abfcb55a7a46253dfea90e1249383f5e06ec31f0dc786\\Program.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\322beca6c653df40fb7abfcb55a7a46253dfea90e1249383f5e06ec31f0dc786\\Program.cs",
@@ -415,19 +471,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "Salon.cs",
-              "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Models\\Salonlar\\Salon.cs",
-              "RelativeDocumentMoniker": "WebProjeDeneme1\\Models\\Salonlar\\Salon.cs",
-              "ToolTip": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Models\\Salonlar\\Salon.cs",
-              "RelativeToolTip": "WebProjeDeneme1\\Models\\Salonlar\\Salon.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T15:57:05.775Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "Konum.cs",
               "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Models\\Salonlar\\Konum.cs",
               "RelativeDocumentMoniker": "WebProjeDeneme1\\Models\\Salonlar\\Konum.cs",
@@ -439,31 +483,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "UzmanlikAlani.cs",
-              "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Models\\Uzmanlik\\UzmanlikAlani.cs",
-              "RelativeDocumentMoniker": "WebProjeDeneme1\\Models\\Uzmanlik\\UzmanlikAlani.cs",
-              "ToolTip": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Models\\Uzmanlik\\UzmanlikAlani.cs",
-              "RelativeToolTip": "WebProjeDeneme1\\Models\\Uzmanlik\\UzmanlikAlani.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T15:56:15.666Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Personel.cs",
-              "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Models\\Personeller\\Personel.cs",
-              "RelativeDocumentMoniker": "WebProjeDeneme1\\Models\\Personeller\\Personel.cs",
-              "ToolTip": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Models\\Personeller\\Personel.cs",
-              "RelativeToolTip": "WebProjeDeneme1\\Models\\Personeller\\Personel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-22T15:55:58.726Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "Profil.cshtml",
               "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\Home\\Profil.cshtml",
               "RelativeDocumentMoniker": "WebProjeDeneme1\\Views\\Home\\Profil.cshtml",
@@ -475,7 +495,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "IsletmemHizmet.cshtml",
               "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\Home\\IsletmemHizmet.cshtml",
               "RelativeDocumentMoniker": "WebProjeDeneme1\\Views\\Home\\IsletmemHizmet.cshtml",
@@ -487,7 +507,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "IsletmemCalisan.cshtml",
               "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\Home\\IsletmemCalisan.cshtml",
               "RelativeDocumentMoniker": "WebProjeDeneme1\\Views\\Home\\IsletmemCalisan.cshtml",
@@ -499,7 +519,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "IsletmemRezervasyon.cshtml",
               "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\Home\\IsletmemRezervasyon.cshtml",
               "RelativeDocumentMoniker": "WebProjeDeneme1\\Views\\Home\\IsletmemRezervasyon.cshtml",
@@ -511,7 +531,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "site.css",
               "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "WebProjeDeneme1\\wwwroot\\css\\site.css",
@@ -523,7 +543,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "IsletmemDashboard.cshtml",
               "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\Home\\IsletmemDashboard.cshtml",
               "RelativeDocumentMoniker": "WebProjeDeneme1\\Views\\Home\\IsletmemDashboard.cshtml",
@@ -535,7 +555,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "_IsletmemLayout.cshtml",
               "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\Shared\\_IsletmemLayout.cshtml",
               "RelativeDocumentMoniker": "WebProjeDeneme1\\Views\\Shared\\_IsletmemLayout.cshtml",
@@ -547,7 +567,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "BSignup.cshtml",
               "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\Home\\BSignup.cshtml",
               "RelativeDocumentMoniker": "WebProjeDeneme1\\Views\\Home\\BSignup.cshtml",
@@ -559,7 +579,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi\\WebProjeDeneme1\\WebProjeDeneme1\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "WebProjeDeneme1\\Views\\Shared\\_Layout.cshtml",

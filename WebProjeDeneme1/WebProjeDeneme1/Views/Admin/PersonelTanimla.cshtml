@@ -6,6 +6,20 @@
 
 <h2>Personel Tanımla</h2>
 
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.Message
+    </div>
+}
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
 <form asp-action="PersonelTanimla" method="post">
     <div class="form-group">
         <label asp-for="SalonId" class="control-label">Salon</label>

@@ -6,10 +6,24 @@
 
 <h2>İşlem Tanımla</h2>
 
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.Message
+    </div>
+}
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
 <form asp-action="IslemTanimla" method="post">
     <div class="form-group">
         <label asp-for="UzmanlikAlaniId" class="control-label">Uzmanlık Alanı</label>
-        <select asp-for="UzmanlikAlaniId" class="form-control" asp-items="@(new SelectList(ViewBag.Salonlar, "SalonId", "Konum.KonumAdi"))"></select>
+        <select asp-for="UzmanlikAlaniId" class="form-control" asp-items="@(new SelectList(ViewBag.UzmanlikAlanlari, "UzmanlikAlaniId", "UzmanlikAdi"))"></select>
         <span asp-validation-for="UzmanlikAlaniId" class="text-danger"></span>
     </div>
     <div class="form-group">
@@ -24,7 +38,7 @@
     </div>
     <div class="form-group">
         <label asp-for="IslemSuresi" class="control-label">İşlem Süresi</label>
-        <input asp-for="IslemSuresi" class="form-control" type="time" />
+        <input asp-for="IslemSuresi" class="form-control" type="text" placeholder="00:40:00" />
         <span asp-validation-for="IslemSuresi" class="text-danger"></span>
     </div>
     <div class="form-group">

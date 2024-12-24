@@ -28,7 +28,11 @@ namespace WebProjeDeneme1.Controllers
         [HttpGet("SalonTanimla")]
         public IActionResult SalonTanimla()
         {
-            ViewBag.Konumlar = _context.Konumlar.ToList();
+            // Sadece salonu olmayan konumları listele
+            var konumlar = _context.Konumlar
+                .Where(k => !_context.Salonlar.Any(s => s.KonumId == k.KonumId))
+                .ToList();
+            ViewBag.Konumlar = konumlar;
             return View();
         }
 
@@ -41,14 +45,18 @@ namespace WebProjeDeneme1.Controllers
                 await _context.SaveChangesAsync();
                 ViewBag.Message = "Salon başarıyla tanımlandı!";
             }
-            ViewBag.Konumlar = _context.Konumlar.ToList();
+            // Sadece salonu olmayan konumları listele
+            var konumlar = _context.Konumlar
+                .Where(k => !_context.Salonlar.Any(s => s.KonumId == k.KonumId))
+                .ToList();
+            ViewBag.Konumlar = konumlar;
             return View();
         }
 
         [HttpGet("IslemTanimla")]
         public IActionResult IslemTanimla()
         {
-            ViewBag.Salonlar = _context.Salonlar.ToList();
+            ViewBag.UzmanlikAlanlari = _context.UzmanlikAlanlari.ToList();
             return View();
         }
 
@@ -61,14 +69,18 @@ namespace WebProjeDeneme1.Controllers
                 await _context.SaveChangesAsync();
                 ViewBag.Message = "İşlem başarıyla tanımlandı!";
             }
-            ViewBag.Salonlar = _context.Salonlar.ToList();
+            else
+            {
+                ViewBag.ErrorMessage = "İşlem tanımlama başarısız. Lütfen tüm alanları doğru doldurduğunuzdan emin olun.";
+            }
+            ViewBag.UzmanlikAlanlari = _context.UzmanlikAlanlari.ToList();
             return View();
         }
 
         [HttpGet("PersonelTanimla")]
         public IActionResult PersonelTanimla()
         {
-            ViewBag.Salonlar = _context.Salonlar.ToList();
+            ViewBag.Salonlar = _context.Salonlar.Include(s => s.Konum).ToList();
             ViewBag.UzmanlikAlanlari = _context.UzmanlikAlanlari.ToList();
             return View();
         }
@@ -91,7 +103,7 @@ namespace WebProjeDeneme1.Controllers
                 await _context.SaveChangesAsync();
                 ViewBag.Message = "Personel başarıyla tanımlandı!";
             }
-            ViewBag.Salonlar = _context.Salonlar.ToList();
+            ViewBag.Salonlar = _context.Salonlar.Include(s => s.Konum).ToList();
             ViewBag.UzmanlikAlanlari = _context.UzmanlikAlanlari.ToList();
             return View();
         }

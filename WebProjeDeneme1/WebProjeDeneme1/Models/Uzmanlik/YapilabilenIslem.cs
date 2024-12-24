@@ -19,6 +19,7 @@
         public string IslemAdi { get; set; }
 
         [Required]
+        [Range(0, double.MaxValue, ErrorMessage = "İşlem ücreti negatif olamaz.")]
         [Column(TypeName = "decimal(10,2)")] // NUMERIC(10,2)
         public decimal IslemUcreti { get; set; }
 
