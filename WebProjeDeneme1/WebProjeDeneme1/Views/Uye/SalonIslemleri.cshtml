@@ -1,0 +1,47 @@
+﻿@model WebProjeDeneme1.Models.Salonlar.Salon
+
+@{
+    ViewData["Title"] = "Salon İşlemleri";
+}
+
+<h2>Salon İşlemleri</h2>
+
+<form method="get" asp-action="SalonIslemleri">
+    <div class="form-group">
+        <label for="SalonId">Salon Seçin</label>
+        <select id="SalonId" name="SalonId" class="form-control" asp-items="@(new SelectList(ViewBag.Salonlar, "SalonId", "Konum.KonumAdi"))">
+            <option value="">Salon Seçin</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Göster</button>
+</form>
+
+@if (Model != null)
+{
+    <h3>@Model.Konum.KonumAdi</h3>
+    <p>Çalışma Saatleri: @Model.BaslangicSaat - @Model.BitisSaat</p>
+
+    <h4>Personeller</h4>
+    <ul>
+        @foreach (var personel in ViewBag.Personeller)
+        {
+            <li>
+                <strong>Personel ID:</strong> @personel.PersonelId
+                <ul>
+                    @foreach (var uzmanlikAlaniId in personel.UzmanlikAlanlari)
+                    {
+                        var islemler = ViewBag.Islemler[uzmanlikAlaniId] as List<WebProjeDeneme1.Models.Uzmanlik.YapilabilenIslem>;
+                        @foreach (var islem in islemler)
+                        {
+                            <li>
+                                <strong>İşlem Adı:</strong> @islem.IslemAdi,
+                                <strong>Süre:</strong> @islem.IslemSuresi,
+                                <strong>Ücret:</strong> @islem.IslemUcreti
+                            </li>
+                        }
+                    }
+                </ul>
+            </li>
+        }
+    </ul>
+}

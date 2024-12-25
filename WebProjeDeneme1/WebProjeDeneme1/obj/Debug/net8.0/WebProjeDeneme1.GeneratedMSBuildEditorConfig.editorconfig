@@ -40,6 +40,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGVyc29uZWxUYW5pbWxhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/tugra/Source/Repos/KuaforYonetimSistemi/WebProjeDeneme1/WebProjeDeneme1/Views/Admin/SalonIslemleri.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2Fsb25Jc2xlbWxlcmkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/tugra/Source/Repos/KuaforYonetimSistemi/WebProjeDeneme1/WebProjeDeneme1/Views/Admin/SalonTanimla.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cU2Fsb25UYW5pbWxhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -88,6 +92,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9maWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/tugra/Source/Repos/KuaforYonetimSistemi/WebProjeDeneme1/WebProjeDeneme1/Views/SalonIslemleri/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Fsb25Jc2xlbWxlcmlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/tugra/Source/Repos/KuaforYonetimSistemi/WebProjeDeneme1/WebProjeDeneme1/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -104,8 +112,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXllXExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/tugra/Source/Repos/KuaforYonetimSistemi/WebProjeDeneme1/WebProjeDeneme1/Views/Uye/Menu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXllXE1lbnUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tugra/Source/Repos/KuaforYonetimSistemi/WebProjeDeneme1/WebProjeDeneme1/Views/Uye/RandevuOlustur.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXllXFJhbmRldnVPbHVzdHVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/tugra/Source/Repos/KuaforYonetimSistemi/WebProjeDeneme1/WebProjeDeneme1/Views/Uye/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXllXFJlZ2lzdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tugra/Source/Repos/KuaforYonetimSistemi/WebProjeDeneme1/WebProjeDeneme1/Views/Uye/SalonIslemleri.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXllXFNhbG9uSXNsZW1sZXJpLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/tugra/Source/Repos/KuaforYonetimSistemi/WebProjeDeneme1/WebProjeDeneme1/Views/_ViewImports.cshtml]

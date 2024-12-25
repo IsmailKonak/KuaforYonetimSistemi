@@ -6,9 +6,38 @@
 
 <h2>İşlem Tanımla</h2>
 
+<form method="post" asp-action="IslemTanimla">
+    <div class="form-group">
+        <label for="UzmanlikAlaniId">Uzmanlık Alanı Seçin</label>
+        <select id="UzmanlikAlaniId" name="UzmanlikAlaniId" class="form-control">
+            @foreach (var uzmanlikAlani in ViewBag.UzmanlikAlanlari)
+            {
+                <option value="@uzmanlikAlani.UzmanlikAlaniId">@uzmanlikAlani.UzmanlikAdi</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="IslemAdi">İşlem Adı</label>
+        <input type="text" id="IslemAdi" name="IslemAdi" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="IslemUcreti">İşlem Ücreti</label>
+        <input type="number" id="IslemUcreti" name="IslemUcreti" class="form-control" step="0.01" />
+    </div>
+
+    <div class="form-group">
+        <label for="IslemSuresi">İşlem Süresi</label>
+        <input type="time" id="IslemSuresi" name="IslemSuresi" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">İşlem Tanımla</button>
+</form>
+
 @if (ViewBag.Message != null)
 {
-    <div class="alert alert-success">
+    <div class="alert alert-info">
         @ViewBag.Message
     </div>
 }
@@ -18,40 +47,4 @@
     <div class="alert alert-danger">
         @ViewBag.ErrorMessage
     </div>
-}
-
-<form asp-action="IslemTanimla" method="post">
-    <div class="form-group">
-        <label asp-for="UzmanlikAlaniId" class="control-label">Uzmanlık Alanı</label>
-        <select asp-for="UzmanlikAlaniId" class="form-control" asp-items="@(new SelectList(ViewBag.UzmanlikAlanlari, "UzmanlikAlaniId", "UzmanlikAdi"))"></select>
-        <span asp-validation-for="UzmanlikAlaniId" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="IslemAdi" class="control-label">İşlem Adı</label>
-        <input asp-for="IslemAdi" class="form-control" />
-        <span asp-validation-for="IslemAdi" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="IslemUcreti" class="control-label">İşlem Ücreti</label>
-        <input asp-for="IslemUcreti" class="form-control" type="number" step="0.01" />
-        <span asp-validation-for="IslemUcreti" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="IslemSuresi" class="control-label">İşlem Süresi</label>
-        <input asp-for="IslemSuresi" class="form-control" type="text" placeholder="00:40:00" />
-        <span asp-validation-for="IslemSuresi" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <input type="submit" value="İşlem Tanımla" class="btn btn-primary" />
-    </div>
-</form>
-
-<div>
-    @ViewBag.Message
-</div>
-
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
 }

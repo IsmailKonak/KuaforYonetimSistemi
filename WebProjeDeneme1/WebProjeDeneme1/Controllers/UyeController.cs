@@ -52,7 +52,7 @@ namespace WebProjeDeneme1.Controllers
                 return RedirectToAction("Index", "Admin");
             }
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Menu", "Uye");
         }
 
         [HttpGet("Register")]
@@ -85,7 +85,7 @@ namespace WebProjeDeneme1.Controllers
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
 
             ViewBag.Message = "Kayıt başarılı!";
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Menu", "Uye");
         }
 
         [HttpPost("Logout")]
@@ -93,6 +93,12 @@ namespace WebProjeDeneme1.Controllers
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet("Menu")]
+        public IActionResult Menu()
+        {
+            return View();
         }
     }
 }

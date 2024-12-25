@@ -107,5 +107,35 @@ namespace WebProjeDeneme1.Controllers
             ViewBag.UzmanlikAlanlari = _context.UzmanlikAlanlari.ToList();
             return View();
         }
+
+        [HttpGet("SalonIslemleri")]
+        public async Task<IActionResult> SalonIslemleri(int? SalonId)
+        {
+            ViewBag.Salonlar = await _context.Salonlar.Include(s => s.Konum).ToListAsync();
+
+            if (SalonId.HasValue)
+            {
+                var selectedSalon = await _context.Salonlar
+                    .Include(s => s.Konum)
+                    .FirstOrDefaultAsync(s => s.SalonId == SalonId.Value);
+
+                if (selectedSalon != null)
+                {
+                    var personeller = await _context.Personeller
+                        .Where(p => p.SalonId == SalonId.Value)
+                        .ToListAsync();
+
+                    var islemler = await _context.YapilabilenIslemler.ToListAsync();
+                    var uzmanlikIslemleri = islemler.GroupBy(i => i.UzmanlikAlaniId)
+                        .ToDictionary(g => g.Key, g => g.ToList());
+
+                    ViewBag.Personeller = personeller;
+                    ViewBag.Islemler = uzmanlikIslemleri;
+                    return View(selectedSalon);
+                }
+            }
+
+            return View();
+        }
     }
 }
