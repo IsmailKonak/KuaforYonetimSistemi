@@ -1,0 +1,48 @@
+﻿@model IEnumerable<WebProjeDeneme1.Models.Randevular.Randevu>
+
+@{
+    ViewData["Title"] = "Randevu Onayla";
+}
+
+<h2>Randevu Onayla</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Salon</th>
+            <th>Personel</th>
+            <th>İşlem</th>
+            <th>Gün</th>
+            <th>Saat</th>
+            <th>Onay Durumu</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var randevu in Model)
+        {
+            <tr>
+                <td>@randevu.Salon.Konum.KonumAdi</td>
+                <td>@randevu.Personel.PersonelId</td>
+                <td>@randevu.Islem.IslemAdi</td>
+                <td>@randevu.Gun.ToShortDateString()</td>
+                <td>@randevu.Saat</td>
+                <td>@(randevu.Onaylandi ? "Onaylandı" : "Onaylanmadı")</td>
+                <td>
+                    @if (!randevu.Onaylandi)
+                    {
+                        <form method="post" asp-action="Onayla" asp-route-id="@randevu.RandevuId">
+                            <button type="submit" class="btn btn-success">Onayla</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <form method="post" asp-action="IptalEt" asp-route-id="@randevu.RandevuId">
+                            <button type="submit" class="btn btn-danger">İptal Et</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

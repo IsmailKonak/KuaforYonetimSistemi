@@ -1,27 +1,15 @@
-﻿@model WebProjeDeneme1.Models.Kullanicilar.Uye
-
-@{
+﻿@{
     ViewData["Title"] = "Admin Paneli";
 }
 
 <h2>Admin Paneli</h2>
 
-@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-{
-    <div>
-        <h3>Kuaför/Berber Tanımlamaları</h3>
-        <ul>
-            <li><a asp-controller="Admin" asp-action="SalonTanimla">Salon Tanımla</a></li>
-            <li><a asp-controller="Admin" asp-action="IslemTanimla">İşlem Tanımla</a></li>
-            <li><a asp-controller="Admin" asp-action="PersonelTanimla">Personel Tanımla</a></li>
-            <li><a asp-controller="Admin" asp-action="SalonIslemleri">Salon İşlemleri</a></li> <!-- Yeni eklenen menü öğesi -->
-        </ul>
-    </div>
-    <form asp-action="Logout" asp-controller="Uye" method="post">
-        <button type="submit" class="btn btn-primary">Çıkış Yap</button>
-    </form>
-}
-else
-{
-    <p>Bu sayfaya erişim yetkiniz yok.</p>
-}
+<ul>
+    <li><a asp-controller="Admin" asp-action="SalonTanimla">Salon Tanımla</a></li>
+    <li><a asp-controller="Admin" asp-action="IslemTanimla">İşlem Tanımla</a></li>
+    <li><a asp-controller="Admin" asp-action="PersonelTanimla">Personel Tanımla</a></li>
+    <li><a asp-controller="Admin" asp-action="SalonIslemleri">Salon İşlemleri</a></li>
+    <li><a asp-controller="Admin" asp-action="RandevuOnayla">Randevu Onayla</a></li>
+    <li><a asp-controller="Admin" asp-action="RandevuOlustur">Randevu Oluştur</a></li>
+    <li><a asp-controller="Admin" asp-action="GunlukCiro">Günlük Ciro Hesapla</a></li>
+</ul>

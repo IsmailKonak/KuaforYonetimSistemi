@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Günlük Ciro Hesaplama";
+}
+
+<h2>Günlük Ciro Hesaplama</h2>
+
+<form method="post" asp-action="GunlukCiro">
+    <div class="form-group">
+        <label for="Tarih">Tarih Seçin</label>
+        <input type="date" id="Tarih" name="Tarih" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Hesapla</button>
+</form>
+
+@if (ViewBag.Ciro != null)
+{
+    <h3>Günlük Ciro: @ViewBag.Ciro.ToString("C")</h3>
+}
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.ErrorMessage
+    </div>
+}

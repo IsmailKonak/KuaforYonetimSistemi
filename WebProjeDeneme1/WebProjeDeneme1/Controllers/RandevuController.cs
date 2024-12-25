@@ -62,6 +62,14 @@ namespace WebProjeDeneme1.Controllers
                 // UyeId'yi geçerli bir değerle ayarla (örneğin, oturum açmış kullanıcı)
                 model.UyeId = 1; // Bu değeri oturum açmış kullanıcıya göre ayarlayın
 
+                // Randevu uygunluk kontrolleri
+                var uygunlukSonucu = await KontrolRandevuUygunlugu(model);
+                if (!uygunlukSonucu.Item1)
+                {
+                    ViewBag.ErrorMessage = uygunlukSonucu.Item2;
+                    return View("~/Views/Uye/RandevuOlustur.cshtml");
+                }
+
                 _context.Randevular.Add(model);
                 await _context.SaveChangesAsync();
                 ViewBag.Message = "Randevu başarıyla oluşturuldu!";
@@ -79,6 +87,45 @@ namespace WebProjeDeneme1.Controllers
                 .ToListAsync();
 
             return View("~/Views/Uye/RandevuOlustur.cshtml");
+        }
+
+        private async Task<(bool, string)> KontrolRandevuUygunlugu(Randevu model)
+        {
+            // Aynı salon, personel ve saat için başka onaylanmış bir randevu olmadığını kontrol et
+            var mevcutRandevu = await _context.Randevular
+                .Where(r => r.SalonId == model.SalonId && r.PersonelId == model.PersonelId && r.Gun == model.Gun && r.Saat == model.Saat && r.Onaylandi)
+                .FirstOrDefaultAsync();
+
+            if (mevcutRandevu != null)
+            {
+                return (false, "Aynı salon, personel ve saat için başka bir onaylanmış randevu bulunmaktadır.");
+            }
+
+            // İşlemin süresi ve randevunun bitiş saati hesaplanır
+            var islem = await _context.YapilabilenIslemler.FindAsync(model.IslemId);
+            var randevuBitisSaati = model.Saat + islem.IslemSuresi;
+
+            // Salonun çalışma saatleriyle uyum kontrolü yapılır
+            var salon = await _context.Salonlar.FindAsync(model.SalonId);
+            if (randevuBitisSaati > salon.BitisSaat || model.Saat < salon.BaslangicSaat)
+            {
+                return (false, "Randevu saati salonun çalışma saatleri dışında.");
+            }
+
+            // Personelin çalışma saatleriyle uyum kontrolü yapılır
+            var personel = await _context.Personeller.FindAsync(model.PersonelId);
+            if (randevuBitisSaati > personel.BitisSaat || model.Saat < personel.BaslangicSaat)
+            {
+                return (false, "Randevu saati personelin çalışma saatleri dışında.");
+            }
+
+            // Personelin ilgili işlem için yeterliliği kontrol edilir
+            if (!personel.UzmanlikAlanlari.Contains(islem.UzmanlikAlaniId))
+            {
+                return (false, "Personel bu işlem için yeterli değil.");
+            }
+
+            return (true, "Randevu uygun.");
         }
     }
 }
