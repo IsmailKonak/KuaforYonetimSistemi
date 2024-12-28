@@ -9,7 +9,7 @@
     <h1 class="h2">Randevu Oluştur</h1>
 </div>
 
-<form method="get" asp-controller="Admin" asp-action="RandevuOlustur">
+<form method="get" asp-controller="Uye" asp-action="RandevuOlustur">
     <div class="form-group">
         <label for="SalonId" class="form-label">Salon Seçin</label>
         <select id="SalonId" name="SalonId" class="form-control" asp-items="@(new SelectList(ViewBag.Salonlar ?? new List<WebProjeDeneme1.Models.Salonlar.Salon>(), "SalonId", "Konum.KonumAdi"))" onchange="this.form.submit()">
@@ -20,7 +20,7 @@
 
 @if (ViewBag.Personeller != null)
 {
-    <form method="get" asp-controller="Admin" asp-action="RandevuOlustur">
+    <form method="get" asp-controller="Uye" asp-action="RandevuOlustur">
         <input type="hidden" name="SalonId" value="@ViewBag.SelectedSalonId" />
         <div class="form-group">
             <label for="PersonelId" class="form-label">Personel Seçin</label>
@@ -33,7 +33,7 @@
 
 @if (ViewBag.Islemler != null)
 {
-    <form method="post" asp-controller="Admin" asp-action="RandevuOlustur">
+    <form method="post" asp-controller="Uye" asp-action="RandevuOlustur">
         <input type="hidden" name="SalonId" value="@ViewBag.SelectedSalonId" />
         <input type="hidden" name="PersonelId" value="@ViewBag.SelectedPersonelId" />
         <div class="form-group">
