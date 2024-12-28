@@ -5194,11 +5194,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi4\\WebProjeDeneme1\\WebProjeDeneme1\\WebProjeDeneme1.csproj",
+      "projectUniqueName": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi6\\WebProjeDeneme1\\WebProjeDeneme1\\WebProjeDeneme1.csproj",
       "projectName": "WebProjeDeneme1",
-      "projectPath": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi4\\WebProjeDeneme1\\WebProjeDeneme1\\WebProjeDeneme1.csproj",
+      "projectPath": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi6\\WebProjeDeneme1\\WebProjeDeneme1\\WebProjeDeneme1.csproj",
       "packagesPath": "C:\\Users\\tugra\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi4\\WebProjeDeneme1\\WebProjeDeneme1\\obj\\",
+      "outputPath": "C:\\Users\\tugra\\source\\repos\\KuaforYonetimSistemi6\\WebProjeDeneme1\\WebProjeDeneme1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
