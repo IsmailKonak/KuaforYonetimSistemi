@@ -47,14 +47,17 @@
                         {
                             <!-- If user is logged in -->
                             <li class="nav-item">
-                                <a class="nav-link fw-bold" asp-area="" asp-controller="Account" asp-action="Profile" style="color: #f5f5f5;">Hesabım</a>
+                                <a class="nav-link fw-bold" asp-area="" asp-controller="Home" asp-action="Index" style="color: #f5f5f5;">Hesabım</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" asp-area="" asp-controller="Uye" asp-action="Logout" style="color: #ffe0e0;">Çıkış Yap</a>
                             </li>
                         }
                         else
                         {
                             <!-- If user is NOT logged in -->
                             <li class="nav-item">
-                                <a class="nav-link fw-bold" asp-area="" asp-controller="Home" asp-action="LoginSignup" style="color: #f5f5f5;">Giriş Yap</a>
+                                <a class="nav-link fw-bold" asp-area="" asp-controller="Uye" asp-action="Login" style="color: #f5f5f5;">Giriş Yap</a>
                             </li>
                         }
                     </ul>

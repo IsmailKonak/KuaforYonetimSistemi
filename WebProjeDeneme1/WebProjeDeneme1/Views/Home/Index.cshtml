@@ -1,33 +1,352 @@
-﻿@model WebProjeDeneme1.Models.Kullanicilar.Uye
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X Kuaförleri - Online Randevu</title>
+    <style>
+        /* Genel Stil */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
 
-@{
-    ViewData["Title"] = "Ana Sayfa";
-}
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-<h2>Ana Sayfa</h2>
+        h1, h2, h3, h4 {
+            color: #d4af37; /* Altın Rengi */
+        }
 
-@if (User.Identity.IsAuthenticated)
-{
-    <p>Hoş geldiniz, @User.Identity.Name!</p>
-    <form asp-action="Logout" asp-controller="Uye" method="post">
-        <button type="submit" class="btn btn-primary">Çıkış Yap</button>
-    </form>
-}
-else
-{
-    <div class="navbar navbar-expand-lg navbar-light bg-light">
+        h3 {
+            text-align: center;
+            margin-bottom: 40px
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #d4af37;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+            .btn:hover {
+                background: #b8860b; /* Koyu Altın Rengi */
+            }
+
+        /* Header */
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+            header h1 {
+                margin: 0;
+            }
+
+                header h1 a {
+                    color: #d4af37;
+                    text-decoration: none;
+                }
+
+            header nav ul {
+                padding: 0;
+                list-style: none;
+            }
+
+                header nav ul li {
+                    display: inline;
+                    margin-left: 20px;
+                }
+
+                    header nav ul li a {
+                        color: #fff;
+                        text-decoration: none;
+                    }
+
+        /* Hero Section */
+        #hero {
+            background: url('images/hero.jpg') no-repeat center center/cover; /* Arkaplan resmi eklenecek */
+            min-height: 400px;
+            color: #fff;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+            #hero h2 {
+                font-size: 2.5em;
+                margin-bottom: 20px;
+            }
+
+            #hero p {
+                font-size: 1.2em;
+                margin-bottom: 30px;
+            }
+
+        /* Özellikler Section */
+        #ozellikler {
+            padding: 40px 0;
+            background-color: #f4f4f4;
+        }
+
+        .ozellik-listesi {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .ozellik {
+            flex: 0 0 30%;
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+            .ozellik img {
+                width: 100px;
+                height: 100px;
+                margin-bottom: 10px;
+            }
+
+        /* Nasıl Çalışır Section */
+        #nasil-calisir {
+            padding: 40px 0;
+            background: #fff;
+        }
+
+        .adim-listesi {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .adim {
+            flex: 0 0 22%;
+            text-align: center;
+            padding: 20px;
+        }
+
+            .adim img {
+                width: 80px;
+                height: 80px;
+                margin-bottom: 10px;
+            }
+
+        /* Şubeler Section */
+        #subeler {
+            padding: 40px 0;
+            background-color: #f4f4f4;
+        }
+
+        .sube-listesi {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .sube {
+            flex: 0 0 30%;
+            margin-bottom: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+            .sube img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+            }
+
+            .sube h4 {
+                padding: 10px;
+                margin: 0;
+            }
+
+            .sube p {
+                padding: 10px;
+            }
+
+        /* Hakkımızda Section */
+        #hakkimizda {
+            padding: 40px 0;
+            background: #fff;
+        }
+
+        /* İletişim Section */
+        #iletisim {
+            padding: 40px 0;
+            background-color: #f4f4f4;
+        }
+
+            #iletisim ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            #iletisim .social-media {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                margin-top: 10px;
+            }
+
+                #iletisim .social-media li {
+                    margin-right: 10px;
+                }
+
+                    #iletisim .social-media li a {
+                        display: block;
+                        width: 32px;
+                        height: 32px;
+                    }
+
+                        #iletisim .social-media li a img {
+                            width: 100%;
+                            height: 100%;
+                        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <section id="hero">
         <div class="container">
-            <a class="navbar-brand" href="#">WebProjeDeneme1</a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Uye" asp-action="Login">Giriş Yap</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Uye" asp-action="Register">Üye Ol</a>
-                    </li>
-                </ul>
+            <h2>X Kuaförleri - Güzelliğin Adresi</h2>
+            <p>Türkiye'nin her yerinde, size en yakın X Kuaförleri şubesinde, uzman ekibimiz ve kaliteli hizmet anlayışımızla güzelliğinize güzellik katıyoruz. Kolay online randevu sistemimizle, dilediğiniz şubemizden, dilediğiniz hizmet için, dilediğiniz saatte randevu alabilirsiniz.</p>
+            <a href="#subeler" class="btn">Hemen Randevu Al</a>
+        </div>
+    </section>
+
+    <section id="ozellikler">
+        <div class="container">
+            <h3>Öne Çıkan Özelliklerimiz</h3>
+            <div class="ozellik-listesi">
+                <div class="ozellik">
+                    <img src="images/yaygin-sube.png" alt="Yaygın Şube Ağı">
+                    <h4>Yaygın Şube Ağı</h4>
+                    <p>Türkiye'nin dört bir yanında, kolayca ulaşabileceğiniz şubelerimizle hizmetinizdeyiz.</p>
+                </div>
+                <div class="ozellik">
+                    <img src="images/deneyimli-kadro.png" alt="Deneyimli Kadro">
+                    <h4>Deneyimli Kadro</h4>
+                    <p>Alanında uzman, profesyonel ve güler yüzlü ekibimizle tanışın.</p>
+                </div>
+                <div class="ozellik">
+                    <img src="images/kaliteli-hizmet.png" alt="Kaliteli Hizmet">
+                    <h4>Kaliteli Hizmet</h4>
+                    <p>En son trendleri ve en kaliteli ürünleri, X Kuaförleri güvencesiyle deneyimleyin.</p>
+                </div>
+                <div class="ozellik">
+                    <img src="images/kolay-randevu.png" alt="Kolay Randevu">
+                    <h4>Kolay Randevu</h4>
+                    <p>Web sitemiz veya mobil uygulamamız üzerinden, birkaç tıklamayla randevu alın.</p>
+                </div>
             </div>
         </div>
-    </div>
-}
+    </section>
+
+    <section id="nasil-calisir">
+        <div class="container">
+            <h3>Nasıl Çalışır?</h3>
+            <div class="adim-listesi">
+                <div class="adim">
+                    <img src="images/adim1.png" alt="Adım 1">
+                    <h4>1. Şubenizi Seçin</h4>
+                    <p>Size en yakın X Kuaförleri şubesini seçin.</p>
+                </div>
+                <div class="adim">
+                    <img src="images/adim2.png" alt="Adım 2">
+                    <h4>2. Hizmetinizi Seçin</h4>
+                    <p>Saç kesiminden boyaya, manikürden pediküre, ihtiyacınız olan hizmeti belirleyin.</p>
+                </div>
+                <div class="adim">
+                    <img src="images/adim3.png" alt="Adım 3">
+                    <h4>3. Tarih ve Saat Belirleyin</h4>
+                    <p>Sizin için uygun olan tarih ve saati seçin.</p>
+                </div>
+                <div class="adim">
+                    <img src="images/adim4.png" alt="Adım 4">
+                    <h4>4. Randevunuzu Onaylayın</h4>
+                    <p>Randevu bilgilerinizi kontrol edin ve onaylayın.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="subeler">
+        <div class="container">
+            <h3>Şubelerimiz</h3>
+            <div class="sube-listesi">
+                <div class="sube">
+                    <img src="images/sube-kadikoy.jpg" alt="X Kuaförleri - Kadıköy">
+                    <h4>X Kuaförleri - Kadıköy</h4>
+                    <p>Adres: Bağdat Caddesi No:123, Kadıköy, İstanbul</p>
+                    <a href="#" class="btn">Randevu Al</a>
+                </div>
+                <div class="sube">
+                    <img src="images/sube-besiktas.jpg" alt="X Kuaförleri - Beşiktaş">
+                    <h4>X Kuaförleri - Beşiktaş</h4>
+                    <p>Adres: Ihlamurdere Caddesi No:45, Beşiktaş, İstanbul</p>
+                    <a href="#" class="btn">Randevu Al</a>
+                </div>
+                <div class="sube">
+                    <img src="images/sube-nisantasi.jpg" alt="X Kuaförleri - Nişantaşı">
+                    <h4>X Kuaförleri - Nişantaşı</h4>
+                    <p>Adres: Teşvikiye Caddesi No:67, Şişli, İstanbul</p>
+                    <a href="#" class="btn">Randevu Al</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hakkimizda">
+        <div class="container">
+            <h3>Hakkımızda</h3>
+            <p>X Kuaförleri olarak, 20 yılı aşkın süredir güzellik sektöründe öncü bir marka olmanın gururunu yaşıyoruz. Türkiye'nin dört bir yanındaki şubelerimizde, uzman ekibimiz ve kaliteli hizmet anlayışımızla müşterilerimize en iyi deneyimi sunmayı hedefliyoruz. Yenilikçi yaklaşımımız, son trendleri takip eden uygulamalarımız ve müşteri memnuniyetine verdiğimiz önemle, sektördeki lider konumumuzu koruyoruz.</p>
+        </div>
+    </section>
+
+    <section id="iletisim">
+        <div class="container">
+            <h3>İletişim</h3>
+            <p>Bize ulaşmak için aşağıdaki bilgileri kullanabilirsiniz:</p>
+            <ul>
+                <li>Telefon: +90 212 123 45 67</li>
+                <li>E-posta: info@xkuaforleri.com</li>
+            </ul>
+            <p>Sosyal medyada bizi takip edin:</p>
+            <ul class="social-media">
+                <li><a href="#"><img src="images/facebook.png" alt="Facebook"></a></li>
+                <li><a href="#"><img src="images/instagram.png" alt="Instagram"></a></li>
+                <li><a href="#"><img src="images/twitter.png" alt="Twitter"></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2023 X Kuaförleri. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
