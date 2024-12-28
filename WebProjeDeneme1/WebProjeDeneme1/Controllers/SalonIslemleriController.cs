@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebProjeDeneme1.Data;
 using WebProjeDeneme1.Models.Salonlar;
-using WebProjeDeneme1.Models.Personeller;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -21,33 +20,51 @@ namespace WebProjeDeneme1.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index(int? SalonId)
+        public async Task<IActionResult> Index([FromQuery] string konum, [FromQuery] string baslangicSaat, [FromQuery] string bitisSaat)
         {
-            ViewBag.Salonlar = await _context.Salonlar.Include(s => s.Konum).ToListAsync();
+            ViewBag.Konumlar = await _context.Konumlar.Select(k => k.KonumAdi).ToListAsync();
 
-            if (SalonId.HasValue)
+            var salonlar = _context.Salonlar.Include(s => s.Konum).AsQueryable();
+
+            if (!string.IsNullOrEmpty(konum))
             {
-                var selectedSalon = await _context.Salonlar
-                    .Include(s => s.Konum)
-                    .FirstOrDefaultAsync(s => s.SalonId == SalonId.Value);
+                salonlar = salonlar.Where(s => s.Konum.KonumAdi == konum);
+            }
 
-                if (selectedSalon != null)
+            // TimeSpan? tipinde değişkenler tanımlıyoruz
+            TimeSpan? parsedBaslangicSaat = null;
+            TimeSpan? parsedBitisSaat = null;
+
+            // String olarak gelen baslangicSaat'i TimeSpan'e çeviriyoruz
+            if (!string.IsNullOrEmpty(baslangicSaat))
+            {
+                if (TimeSpan.TryParse(baslangicSaat, out TimeSpan tempBaslangicSaat))
                 {
-                    var personeller = await _context.Personeller
-                        .Where(p => p.SalonId == SalonId.Value)
-                        .ToListAsync();
-
-                    var islemler = await _context.YapilabilenIslemler.ToListAsync();
-                    var uzmanlikIslemleri = islemler.GroupBy(i => i.UzmanlikAlaniId)
-                        .ToDictionary(g => g.Key, g => g.ToList());
-
-                    ViewBag.Personeller = personeller;
-                    ViewBag.Islemler = uzmanlikIslemleri;
-                    return View(selectedSalon);
+                    parsedBaslangicSaat = tempBaslangicSaat;
                 }
             }
 
-            return View();
+            // String olarak gelen bitisSaat'i TimeSpan'e çeviriyoruz
+            if (!string.IsNullOrEmpty(bitisSaat))
+            {
+                if (TimeSpan.TryParse(bitisSaat, out TimeSpan tempBitisSaat))
+                {
+                    parsedBitisSaat = tempBitisSaat;
+                }
+            }
+
+            // Filtreleme işlemlerinde çevrilmiş değerleri kullanıyoruz
+            if (parsedBaslangicSaat.HasValue)
+            {
+                salonlar = salonlar.Where(s => s.BaslangicSaat >= parsedBaslangicSaat.Value);
+            }
+
+            if (parsedBitisSaat.HasValue)
+            {
+                salonlar = salonlar.Where(s => s.BitisSaat <= parsedBitisSaat.Value);
+            }
+
+            return View(await salonlar.ToListAsync());
         }
     }
 }
