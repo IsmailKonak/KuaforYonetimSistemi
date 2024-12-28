@@ -2,11 +2,15 @@
 
 @{
     ViewData["Title"] = "Randevu Onayla";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Randevu Onayla</h2>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Randevu Onayla</h1>
+</div>
 
-<table class="table">
+<table class="table table-striped">
+    @* table-striped class'ı eklendi *@
     <thead>
         <tr>
             <th>Salon</th>
@@ -23,22 +27,22 @@
         {
             <tr>
                 <td>@randevu.Salon.Konum.KonumAdi</td>
-                <td>@randevu.Personel.PersonelId</td>
+                <td>@randevu.Personel.PersonelId</td> @* Personel adı gösterilebilir *@
                 <td>@randevu.Islem.IslemAdi</td>
                 <td>@randevu.Gun.ToShortDateString()</td>
-                <td>@randevu.Saat</td>
+                <td>@randevu.Saat.ToString(@"hh\:mm")</td> @* Saat formatı düzeltildi *@
                 <td>@(randevu.Onaylandi ? "Onaylandı" : "Onaylanmadı")</td>
                 <td>
                     @if (!randevu.Onaylandi)
                     {
-                        <form method="post" asp-action="Onayla" asp-route-id="@randevu.RandevuId">
-                            <button type="submit" class="btn btn-success">Onayla</button>
+                        <form method="post" asp-controller="Admin" asp-action="Onayla" asp-route-id="@randevu.RandevuId">
+                            <button type="submit" class="btn btn-success btn-sm">Onayla</button> @* btn-sm class'ı eklendi *@
                         </form>
                     }
                     else
                     {
-                        <form method="post" asp-action="IptalEt" asp-route-id="@randevu.RandevuId">
-                            <button type="submit" class="btn btn-danger">İptal Et</button>
+                        <form method="post" asp-controller="Admin" asp-action="IptalEt" asp-route-id="@randevu.RandevuId">
+                            <button type="submit" class="btn btn-danger btn-sm">İptal Et</button> @* btn-sm class'ı eklendi *@
                         </form>
                     }
                 </td>

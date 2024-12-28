@@ -2,13 +2,16 @@
 
 @{
     ViewData["Title"] = "Salon İşlemleri";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Salon İşlemleri</h2>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Salon İşlemleri</h1>
+</div>
 
-<form method="get" asp-action="SalonIslemleri">
+<form method="get" asp-controller="Admin" asp-action="SalonIslemleri">
     <div class="form-group">
-        <label for="SalonId">Salon Seçin</label>
+        <label for="SalonId" class="form-label">Salon Seçin</label>
         <select id="SalonId" name="SalonId" class="form-control" asp-items="@(new SelectList(ViewBag.Salonlar, "SalonId", "Konum.KonumAdi"))">
             <option value="">Salon Seçin</option>
         </select>
@@ -18,30 +21,39 @@
 
 @if (Model != null)
 {
-    <h3>@Model.Konum.KonumAdi</h3>
-    <p>Çalışma Saatleri: @Model.BaslangicSaat - @Model.BitisSaat</p>
+    <div class="mt-4">
+        @* İçeriği biraz aşağı almak için mt-4 class'ı eklendi *@
+        <h3>@Model.Konum.KonumAdi</h3>
+        <p>Çalışma Saatleri: @Model.BaslangicSaat.ToString(@"hh\:mm") - @Model.BitisSaat.ToString(@"hh\:mm")</p> @* Saat formatı düzeltildi *@
 
-    <h4>Personeller</h4>
-    <ul>
-        @foreach (var personel in ViewBag.Personeller)
-        {
-            <li>
-                <strong>Personel ID:</strong> @personel.PersonelId
-                <ul>
-                    @foreach (var uzmanlikAlaniId in personel.UzmanlikAlanlari)
-                    {
-                        var islemler = ViewBag.Islemler[uzmanlikAlaniId] as List<WebProjeDeneme1.Models.Uzmanlik.YapilabilenIslem>;
-                        @foreach (var islem in islemler)
+        <h4>Personeller</h4>
+        <ul>
+            @foreach (var personel in ViewBag.Personeller)
+            {
+                <li>
+                    <strong>Personel ID:</strong> @personel.PersonelId @* Burada personelin adı yazılabilir *@
+                    <ul>
+                        @foreach (var uzmanlikAlaniId in personel.UzmanlikAlanlari)
                         {
-                            <li>
-                                <strong>İşlem Adı:</strong> @islem.IslemAdi,
-                                <strong>Süre:</strong> @islem.IslemSuresi,
-                                <strong>Ücret:</strong> @islem.IslemUcreti
-                            </li>
+                            var islemler = ViewBag.Islemler[uzmanlikAlaniId] as List<WebProjeDeneme1.Models.Uzmanlik.YapilabilenIslem>;
+                            @foreach (var islem in islemler)
+                            {
+                                <li>
+                                    <strong>İşlem Adı:</strong> @islem.IslemAdi,
+                                    <strong>Süre:</strong> @islem.IslemSuresi.ToString(@"hh\:mm"), @* Süre formatı düzeltildi *@
+                                    <strong>Ücret:</strong> @islem.IslemUcreti.ToString("C") @* Para birimi formatı eklendi *@
+                                </li>
+                            }
                         }
-                    }
-                </ul>
-            </li>
-        }
-    </ul>
+                    </ul>
+                </li>
+            }
+        </ul>
+    </div>
+}
+
+@section Scripts {
+    <script>
+        // JavaScript kodlarını buraya ekleyebilirsiniz (eğer gerekliyse)
+    </script>
 }

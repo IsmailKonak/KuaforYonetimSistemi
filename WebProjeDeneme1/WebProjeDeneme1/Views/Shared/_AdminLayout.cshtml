@@ -1,0 +1,82 @@
+﻿@* Views/Shared/_AdminLayout.cshtml *@
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Admin Paneli</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    @* Admin sayfalarına özel CSS ekleyebilirsiniz *@
+    <link rel="stylesheet" href="~/css/isletmem.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            @* Sidebar *@
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")" asp-controller="Admin" asp-action="Index">
+                                <i class="bi bi-house-door-fill"></i> Admin Ana Sayfa
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "SalonTanimla" ? "active" : "")" asp-controller="Admin" asp-action="SalonTanimla">
+                                <i class="bi bi-geo-alt-fill"></i> Salon Tanımla
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "IslemTanimla" ? "active" : "")" asp-controller="Admin" asp-action="IslemTanimla">
+                                <i class="bi bi-tags-fill"></i> İşlem Tanımla
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "PersonelTanimla" ? "active" : "")" asp-controller="Admin" asp-action="PersonelTanimla">
+                                <i class="bi bi-people-fill"></i> Personel Tanımla
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "SalonIslemleri" ? "active" : "")" asp-controller="Admin" asp-action="SalonIslemleri">
+                                <i class="bi bi-gear-fill"></i> Salon İşlemleri
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "RandevuOnayla" ? "active" : "")" asp-controller="Admin" asp-action="RandevuOnayla">
+                                <i class="bi bi-calendar-check-fill"></i> Randevu Onayla
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "RandevuOlustur" ? "active" : "")" asp-controller="Admin" asp-action="RandevuOlustur">
+                                <i class="bi bi-calendar-plus-fill"></i> Randevu Oluştur
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["Action"].ToString() == "GunlukCiro" ? "active" : "")" asp-controller="Admin" asp-action="GunlukCiro">
+                                <i class="bi bi-cash-coin"></i> Günlük Ciro
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            @* Ana İçerik *@
+            <main role="main" class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @* Admin sayfalarına özel script dosyaları ekleyebilirsiniz *@
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

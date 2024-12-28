@@ -5,6 +5,7 @@ using WebProjeDeneme1.Models.Salonlar;
 using WebProjeDeneme1.Models.Personeller;
 using WebProjeDeneme1.Models.Uzmanlik;
 using WebProjeDeneme1.Models.Randevular;
+using WebProjeDeneme1.Models.Kullanicilar; 
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -25,6 +26,26 @@ namespace WebProjeDeneme1.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult IsAdmin(string email)
+        {
+            if (string.IsNullOrEmpty(email))
+            {
+                return BadRequest("Email cannot be null or empty.");
+            }
+
+            // Find the user by email
+            var user = _context.Uyeler.FirstOrDefault(u => u.Email == email);
+
+            if (user == null)
+            {
+                return NotFound("User not found.");
+            }
+
+            // Return the AdminMi value
+            return Ok(new { AdminMi = user.AdminMi });
         }
 
         [HttpGet("SalonTanimla")]

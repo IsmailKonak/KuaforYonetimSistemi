@@ -33,9 +33,6 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" asp-area="" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" asp-area="" asp-controller="Home" asp-action="IsletmemDashboard">İşletmem Dashboard</a>
-                        </li>
 
                         <!-- Salons with Hover Dropdown -->
                         <li class="nav-item dropdown position-static">
@@ -86,6 +83,7 @@
 
                     <!-- Login / My Account -->
                     <ul class="navbar-nav">
+      
                         @if (User.Identity.IsAuthenticated)
                         {
                             <!-- If user is logged in -->

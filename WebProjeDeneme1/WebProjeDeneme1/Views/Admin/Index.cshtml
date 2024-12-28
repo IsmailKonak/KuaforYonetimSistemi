@@ -1,15 +1,9 @@
-﻿@{
+﻿@* Views/Admin/Index.cshtml *@
+@{
     ViewData["Title"] = "Admin Paneli";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Admin Paneli</h2>
-
-<ul>
-    <li><a asp-controller="Admin" asp-action="SalonTanimla">Salon Tanımla</a></li>
-    <li><a asp-controller="Admin" asp-action="IslemTanimla">İşlem Tanımla</a></li>
-    <li><a asp-controller="Admin" asp-action="PersonelTanimla">Personel Tanımla</a></li>
-    <li><a asp-controller="Admin" asp-action="SalonIslemleri">Salon İşlemleri</a></li>
-    <li><a asp-controller="Admin" asp-action="RandevuOnayla">Randevu Onayla</a></li>
-    <li><a asp-controller="Admin" asp-action="RandevuOlustur">Randevu Oluştur</a></li>
-    <li><a asp-controller="Admin" asp-action="GunlukCiro">Günlük Ciro Hesapla</a></li>
-</ul>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Admin Paneli</h1>
+</div>

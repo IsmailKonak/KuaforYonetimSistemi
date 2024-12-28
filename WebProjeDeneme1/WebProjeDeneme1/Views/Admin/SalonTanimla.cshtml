@@ -2,44 +2,40 @@
 
 @{
     ViewData["Title"] = "Salon Tanımla";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Salon Tanımla</h2>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Salon Tanımla</h1>
+</div>
 
 @if (ViewBag.Message != null)
 {
-        <div class="alert alert-success">
+    <div class="alert alert-success mt-3">
         @ViewBag.Message
-        </div>
+    </div>
 }
 
 <form asp-action="SalonTanimla" method="post">
-    <div class="form-group">
-        <label asp-for="KonumId" class="control-label">Konum</label>
-        <select asp-for="KonumId" class="form-control" asp-items="@(new SelectList(ViewBag.Konumlar, "KonumId", "KonumAdi"))"></select>
-        <span asp-validation-for="KonumId" class="text-danger"></span>
+    <div class="row">
+        <div class="col-md-7">
+            <div class="form-group mb-2">
+                <label asp-for="KonumId" class="control-label text-gold">Konum</label> @* text-gold class'ı eklendi *@
+                <select asp-for="KonumId" class="form-control" asp-items="@(new SelectList(ViewBag.Konumlar, "KonumId", "KonumAdi"))"></select> @* form-control class'ı eklendi *@
+                <span asp-validation-for="KonumId" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="BaslangicSaat" class="control-label text-dark mt-3">Başlangıç Saati</label> @* text-dark ve mt-3 class'ları eklendi *@
+                <input asp-for="BaslangicSaat" class="form-control" type="time" /> @* form-control class'ı eklendi *@
+                <span asp-validation-for="BaslangicSaat" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="BitisSaat" class="control-label text-dark">Bitiş Saati</label> @* text-dark class'ı eklendi *@
+                <input asp-for="BitisSaat" class="form-control" type="time" /> @* form-control class'ı eklendi *@
+                <span asp-validation-for="BitisSaat" class="text-danger"></span>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label asp-for="BaslangicSaat" class="control-label">Başlangıç Saati</label>
-        <input asp-for="BaslangicSaat" class="form-control" type="time" />
-        <span asp-validation-for="BaslangicSaat" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="BitisSaat" class="control-label">Bitiş Saati</label>
-        <input asp-for="BitisSaat" class="form-control" type="time" />
-        <span asp-validation-for="BitisSaat" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <input type="submit" value="Salon Tanımla" class="btn btn-primary" />
-    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Salon Tanımla</button> @* btn ve btn-primary class'ları eklendi *@
 </form>
-
-<div>
-    @ViewBag.Message
-</div>
-
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}

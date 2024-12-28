@@ -1,12 +1,15 @@
 ﻿@{
     ViewData["Title"] = "Günlük Ciro Hesaplama";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Günlük Ciro Hesaplama</h2>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Günlük Ciro</h1>
+</div>
 
-<form method="post" asp-action="GunlukCiro">
-    <div class="form-group">
-        <label for="Tarih">Tarih Seçin</label>
+<form method="post" asp-controller="Admin" asp-action="GunlukCiro">
+    <div class="form-group mb-2">
+        <label for="Tarih" class="form-label">Tarih Seçin</label> @* form-label class'ı eklendi *@
         <input type="date" id="Tarih" name="Tarih" class="form-control" required />
     </div>
     <button type="submit" class="btn btn-primary">Hesapla</button>
@@ -14,12 +17,13 @@
 
 @if (ViewBag.Ciro != null)
 {
-    <h3>Günlük Ciro: @ViewBag.Ciro.ToString("C")</h3>
+    <h3 class="mt-3">Günlük Ciro: @ViewBag.Ciro.ToString("C")</h3> @* mt-3 class'ı ve para birimi formatı eklendi *@
 }
 
 @if (ViewBag.ErrorMessage != null)
 {
-    <div class="alert alert-danger">
+    <div class="alert alert-danger mt-3">
+        @* mt-3 class'ı eklendi *@
         @ViewBag.ErrorMessage
     </div>
 }
