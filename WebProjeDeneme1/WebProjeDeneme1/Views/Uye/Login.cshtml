@@ -1,6 +1,7 @@
 ﻿@model WebProjeDeneme1.Models.Kullanicilar.Uye
 
 @{
+    Layout = "~/Views/Shared/_MinimalLayout.cshtml";
     ViewData["Title"] = "Giriş Yap";
 }
 
@@ -24,7 +25,6 @@
                         <div class="d-grid">
                             <button type="submit" class="btn btn-accent">Giriş Yap</button>
                         </div>
-              
                     </form>
                     <div class="mt-4 text-center">
                         <p class="text-dark">Üye değil misiniz? <a asp-controller="Uye" asp-action="Register" class="text-gold">Buradan Kayıt Olun</a></p>
@@ -101,7 +101,6 @@
     .card {
         border: none;
     }
-
 </style>
 
 @section Scripts {

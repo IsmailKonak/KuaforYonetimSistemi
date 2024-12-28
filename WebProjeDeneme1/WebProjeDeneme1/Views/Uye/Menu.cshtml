@@ -1,11 +1,10 @@
 ﻿@{
-    ViewData["Title"] = "Menü";
+    ViewData["Title"] = "Üye Menüsü";
 }
 
-<h2>Menü</h2>
+<h2>Üye Menüsü</h2>
 
 <ul>
-    <li><a asp-controller="SalonIslemleri" asp-action="Index">Salon İşlemleri</a></li>
     <li><a asp-controller="Randevu" asp-action="RandevuOlustur">Randevu Oluştur</a></li>
-    <!-- Diğer menü öğelerini buraya ekleyebilirsiniz -->
+    <li><a asp-controller="Randevu" asp-action="Randevularim">Randevularım</a></li>
 </ul>

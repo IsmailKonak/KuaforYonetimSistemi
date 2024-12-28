@@ -1,0 +1,17 @@
+﻿@model WebProjeDeneme1.Models.Kullanicilar.Uye
+
+@{
+    ViewData["Title"] = "Profilim";
+}
+
+<h2>Profilim</h2>
+
+<div class="form-group">
+    <label for="Email">Email</label>
+    <input type="email" id="Email" name="Email" class="form-control" value="@Model.Email" readonly />
+</div>
+
+<div class="form-group">
+    <label for="Password">Şifre</label>
+    <input type="password" id="Password" name="Password" class="form-control" value="@Model.Password" readonly />
+</div>

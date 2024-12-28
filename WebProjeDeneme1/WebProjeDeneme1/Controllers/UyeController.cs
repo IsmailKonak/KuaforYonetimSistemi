@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebProjeDeneme1.Controllers
 {
@@ -88,17 +89,45 @@ namespace WebProjeDeneme1.Controllers
             return RedirectToAction("Menu", "Uye");
         }
 
-        [HttpPost("Logout")]
+        [HttpGet("Logout")]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Uye");
         }
 
         [HttpGet("Menu")]
+        [Authorize]
         public IActionResult Menu()
         {
             return View();
+        }
+
+        [HttpGet("Randevularim")]
+        [Authorize]
+        public async Task<IActionResult> Randevularim()
+        {
+            var userEmail = User.Identity.Name;
+            var user = await _context.Uyeler.SingleOrDefaultAsync(x => x.Email == userEmail);
+
+            var randevular = await _context.Randevular
+                .Where(r => r.UyeId == user.UyeId)
+                .Include(r => r.Salon)
+                .Include(r => r.Personel)
+                .Include(r => r.Islem)
+                .ToListAsync();
+
+            return View(randevular);
+        }
+
+        [HttpGet("Profil")]
+        [Authorize]
+        public async Task<IActionResult> Profil()
+        {
+            var userEmail = User.Identity.Name;
+            var user = await _context.Uyeler.SingleOrDefaultAsync(x => x.Email == userEmail);
+
+            return View(user);
         }
     }
 }

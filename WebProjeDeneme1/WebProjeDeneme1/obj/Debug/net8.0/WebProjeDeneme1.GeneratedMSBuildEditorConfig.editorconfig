@@ -112,8 +112,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/tugra/Source/Repos/KuaforYonetimSistemi/WebProjeDeneme1/WebProjeDeneme1/Views/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/tugra/Source/Repos/KuaforYonetimSistemi/WebProjeDeneme1/WebProjeDeneme1/Views/Shared/_IsletmemLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Jc2xldG1lbUxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tugra/Source/Repos/KuaforYonetimSistemi/WebProjeDeneme1/WebProjeDeneme1/Views/Shared/_MinimalLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9NaW5pbWFsTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/tugra/Source/Repos/KuaforYonetimSistemi/WebProjeDeneme1/WebProjeDeneme1/Views/Shared/_ValidationScriptsPartial.cshtml]
@@ -126,6 +134,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/tugra/Source/Repos/KuaforYonetimSistemi/WebProjeDeneme1/WebProjeDeneme1/Views/Uye/Menu.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXllXE1lbnUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tugra/Source/Repos/KuaforYonetimSistemi/WebProjeDeneme1/WebProjeDeneme1/Views/Uye/Profil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXllXFByb2ZpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tugra/Source/Repos/KuaforYonetimSistemi/WebProjeDeneme1/WebProjeDeneme1/Views/Uye/Randevularim.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXllXFJhbmRldnVsYXJpbS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/tugra/Source/Repos/KuaforYonetimSistemi/WebProjeDeneme1/WebProjeDeneme1/Views/Uye/RandevuOlustur.cshtml]

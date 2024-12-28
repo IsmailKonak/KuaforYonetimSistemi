@@ -1,6 +1,7 @@
 ﻿@model WebProjeDeneme1.Models.Kullanicilar.Uye
 
 @{
+    Layout = "~/Views/Shared/_MinimalLayout.cshtml";
     ViewData["Title"] = "Kayıt Ol";
 }
 
@@ -11,7 +12,6 @@
                 <div class="card-body p-5">
                     <h4 class="text-center text-gold mb-4">Müşteri Kaydı</h4>
                     <form asp-controller="Uye" asp-action="Register" method="post">
-                        @*Controller ve action güncellendi*@
                         <div class="form-floating mb-3">
                             <input asp-for="Email" class="form-control" id="signupEmail" placeholder="name@example.com" />
                             <label for="signupEmail">E-posta</label>
@@ -21,12 +21,6 @@
                             <input asp-for="Password" class="form-control" type="password" id="signupPassword" placeholder="Password" />
                             <label for="signupPassword">Şifre</label>
                             <span asp-validation-for="Password" class="text-danger"></span>
-                        </div>
-                        <div class="form-check mb-3">
-                            <input type="checkbox" class="form-check-input" id="acceptTerms">
-                            <label class="form-check-label" for="acceptTerms">
-                                <a href="#" class="text-secondary">Kullanıcı Sözleşmesi</a> ve <a href="#" class="text-secondary">Gizlilik Politikası</a>'nı kabul ediyorum.
-                            </label>
                         </div>
                         <div class="d-grid">
                             <button type="submit" class="btn btn-accent">Kayıt Ol</button>
