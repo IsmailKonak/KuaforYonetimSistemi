@@ -2,13 +2,16 @@
 
 @{
     ViewData["Title"] = "Randevu Oluştur";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Randevu Oluştur</h2>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Randevu Oluştur</h1>
+</div>
 
-<form method="get" asp-action="RandevuOlustur">
+<form method="get" asp-controller="Admin" asp-action="RandevuOlustur">
     <div class="form-group">
-        <label for="SalonId">Salon Seçin</label>
+        <label for="SalonId" class="form-label">Salon Seçin</label>
         <select id="SalonId" name="SalonId" class="form-control" asp-items="@(new SelectList(ViewBag.Salonlar ?? new List<WebProjeDeneme1.Models.Salonlar.Salon>(), "SalonId", "Konum.KonumAdi"))" onchange="this.form.submit()">
             <option value="">Salon Seçin</option>
         </select>
@@ -17,10 +20,10 @@
 
 @if (ViewBag.Personeller != null)
 {
-    <form method="get" asp-action="RandevuOlustur">
+    <form method="get" asp-controller="Admin" asp-action="RandevuOlustur">
         <input type="hidden" name="SalonId" value="@ViewBag.SelectedSalonId" />
         <div class="form-group">
-            <label for="PersonelId">Personel Seçin</label>
+            <label for="PersonelId" class="form-label">Personel Seçin</label>
             <select id="PersonelId" name="PersonelId" class="form-control" asp-items="@(new SelectList(ViewBag.Personeller ?? new List<WebProjeDeneme1.Models.Personeller.Personel>(), "PersonelId", "PersonelId"))" onchange="this.form.submit()">
                 <option value="">Personel Seçin</option>
             </select>
@@ -30,37 +33,47 @@
 
 @if (ViewBag.Islemler != null)
 {
-    <form method="post" asp-action="RandevuOlustur">
+    <form method="post" asp-controller="Admin" asp-action="RandevuOlustur">
         <input type="hidden" name="SalonId" value="@ViewBag.SelectedSalonId" />
         <input type="hidden" name="PersonelId" value="@ViewBag.SelectedPersonelId" />
         <div class="form-group">
-            <label for="IslemId">İşlem Seçin</label>
+            <label for="IslemId" class="form-label">İşlem Seçin</label>
             <select id="IslemId" name="IslemId" class="form-control" asp-items="@(new SelectList(ViewBag.Islemler ?? new List<WebProjeDeneme1.Models.Uzmanlik.YapilabilenIslem>(), "YapilabilenIslemlerId", "IslemAdi"))">
                 <option value="">İşlem Seçin</option>
             </select>
         </div>
-        <div>
+        <div class="mt-3">
             <h4>İşlem Detayları</h4>
             <ul>
                 @foreach (var islem in ViewBag.Islemler)
                 {
                     <li>
                         <strong>İşlem Adı:</strong> @islem.IslemAdi,
-                        <strong>Süre:</strong> @islem.IslemSuresi,
-                        <strong>Ücret:</strong> @islem.IslemUcreti
+                        <strong>Süre:</strong> @islem.IslemSuresi.ToString(@"hh\:mm"),
+                        <strong>Ücret:</strong> @islem.IslemUcreti.ToString("C")
                     </li>
                 }
             </ul>
         </div>
 
+        @if (ViewBag.SelectedPersonel != null)
+        {
+            var selectedPersonel = ViewBag.SelectedPersonel;
+            <div class="mt-3">
+                <h4>Çalışma Saatleri</h4>
+                <p><strong>Başlangıç Saati:</strong> @selectedPersonel.BaslangicSaat.ToString(@"hh\:mm")</p>
+                <p><strong>Bitiş Saati:</strong> @selectedPersonel.BitisSaat.ToString(@"hh\:mm")</p>
+            </div>
+        }
+
         <div class="form-group">
-            <label for="Gun">Gün</label>
-            <input type="date" id="Gun" name="Gun" class="form-control" />
+            <label for="Gun" class="form-label">Gün</label>
+            <input type="date" id="Gun" name="Gun" class="form-control" value="@Model?.Gun.ToString("yyyy-MM-dd")" required />
         </div>
 
         <div class="form-group">
-            <label for="Saat">Saat</label>
-            <input type="time" id="Saat" name="Saat" class="form-control" />
+            <label for="Saat" class="form-label">Saat</label>
+            <input type="time" id="Saat" name="Saat" class="form-control" value="@Model?.Saat.ToString(@"hh\:mm")" required />
         </div>
 
         <button type="submit" class="btn btn-primary">Randevu Oluştur</button>
@@ -69,29 +82,22 @@
 
 @if (ViewBag.Message != null)
 {
-    <div class="alert alert-info">
+    <div class="alert alert-info mt-3">
         @ViewBag.Message
     </div>
 }
 
-
 @if (ViewBag.ErrorMessage != null)
 {
-    <div class="alert alert-danger">
+    <div class="alert alert-danger mt-3">
         @ViewBag.ErrorMessage
     </div>
 }
-@if (ViewBag.SuccessMessage != null)
-{
-    <div class="alert alert-success">
-        @ViewBag.SuccessMessage
-    </div>
-}
 
-<h3>Mevcut Randevular</h3>
+<h3 class="mt-4">Mevcut Randevular</h3>
 @if (ViewBag.MevcutRandevular != null)
 {
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Salon</th>
@@ -100,6 +106,7 @@
                 <th>Gün</th>
                 <th>Saat</th>
                 <th>Onay Durumu</th>
+                <th>Oluşturan Kullanıcı</th>
             </tr>
         </thead>
         <tbody>
@@ -110,8 +117,9 @@
                     <td>@randevu.Personel.PersonelId</td>
                     <td>@randevu.Islem.IslemAdi</td>
                     <td>@randevu.Gun.ToShortDateString()</td>
-                    <td>@randevu.Saat</td>
+                    <td>@randevu.Saat.ToString(@"hh\:mm")</td>
                     <td>@(randevu.Onaylandi ? "Onaylandı" : "Onaylanmadı")</td>
+                    <td>@randevu.UyeId</td>
                 </tr>
             }
         </tbody>

@@ -1,14 +1,18 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebProjeDeneme1.Data;
 using WebProjeDeneme1.Models.Salonlar;
+using WebProjeDeneme1.Models.Personeller;
+using WebProjeDeneme1.Models.Uzmanlik;
+using WebProjeDeneme1.Models.Randevular;
+using WebProjeDeneme1.Models.Kullanicilar;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebProjeDeneme1.Controllers
 {
-    [Authorize]
     [Route("[controller]")]
     public class SalonIslemleriController : Controller
     {
@@ -19,52 +23,72 @@ namespace WebProjeDeneme1.Controllers
             _context = context;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Index([FromQuery] string konum, [FromQuery] string baslangicSaat, [FromQuery] string bitisSaat)
+        [HttpGet("Index")]
+        public async Task<IActionResult> Index(string konum, string baslangicSaat, string bitisSaat)
         {
-            ViewBag.Konumlar = await _context.Konumlar.Select(k => k.KonumAdi).ToListAsync();
-
-            var salonlar = _context.Salonlar.Include(s => s.Konum).AsQueryable();
+            var salonlar = await _context.Salonlar
+                .Include(s => s.Konum)
+                .ToListAsync();
 
             if (!string.IsNullOrEmpty(konum))
             {
-                salonlar = salonlar.Where(s => s.Konum.KonumAdi == konum);
+                salonlar = salonlar.Where(s => s.Konum.KonumAdi == konum).ToList();
             }
 
-            // TimeSpan? tipinde değişkenler tanımlıyoruz
-            TimeSpan? parsedBaslangicSaat = null;
-            TimeSpan? parsedBitisSaat = null;
-
-            // String olarak gelen baslangicSaat'i TimeSpan'e çeviriyoruz
             if (!string.IsNullOrEmpty(baslangicSaat))
             {
-                if (TimeSpan.TryParse(baslangicSaat, out TimeSpan tempBaslangicSaat))
-                {
-                    parsedBaslangicSaat = tempBaslangicSaat;
-                }
+                var baslangic = TimeSpan.Parse(baslangicSaat);
+                salonlar = salonlar.Where(s => s.BaslangicSaat <= baslangic).ToList();
             }
 
-            // String olarak gelen bitisSaat'i TimeSpan'e çeviriyoruz
             if (!string.IsNullOrEmpty(bitisSaat))
             {
-                if (TimeSpan.TryParse(bitisSaat, out TimeSpan tempBitisSaat))
+                var bitis = TimeSpan.Parse(bitisSaat);
+                salonlar = salonlar.Where(s => s.BitisSaat >= bitis).ToList();
+            }
+
+            ViewBag.Konumlar = await _context.Konumlar.Select(k => k.KonumAdi).ToListAsync();
+
+            var salonIslemleri = new Dictionary<int, List<string>>();
+
+            foreach (var salon in salonlar)
+            {
+                var personeller = await _context.Personeller
+                    .Where(p => p.SalonId == salon.SalonId)
+                    .ToListAsync();
+
+                var islemler = new List<string>();
+
+                foreach (var personel in personeller)
                 {
-                    parsedBitisSaat = tempBitisSaat;
+                    var personelIslemleri = await _context.YapilabilenIslemler
+                        .Where(i => personel.UzmanlikAlanlari.Contains(i.UzmanlikAlaniId))
+                        .Select(i => i.IslemAdi)
+                        .ToListAsync();
+
+                    islemler.AddRange(personelIslemleri);
                 }
+
+                salonIslemleri[salon.SalonId] = islemler.Distinct().ToList();
             }
 
-            // Filtreleme işlemlerinde çevrilmiş değerleri kullanıyoruz
-            if (parsedBaslangicSaat.HasValue)
+            ViewBag.SalonIslemleri = salonIslemleri;
+
+            return View(salonlar);
+        }
+
+        [HttpGet("RandevuOlustur")]
+        [Authorize]
+        public IActionResult RandevuOlustur(int salonId)
+        {
+            if (User.IsInRole("Admin"))
             {
-                salonlar = salonlar.Where(s => s.BaslangicSaat >= parsedBaslangicSaat.Value);
+                return RedirectToAction("RandevuOlustur", "Admin", new { SalonId = salonId });
             }
-
-            if (parsedBitisSaat.HasValue)
+            else
             {
-                salonlar = salonlar.Where(s => s.BitisSaat <= parsedBitisSaat.Value);
+                return RedirectToAction("RandevuOlustur", "Uye", new { SalonId = salonId });
             }
-
-            return View(await salonlar.ToListAsync());
         }
     }
 }

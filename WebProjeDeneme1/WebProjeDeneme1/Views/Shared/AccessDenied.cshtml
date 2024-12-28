@@ -1,0 +1,17 @@
+﻿@{
+    Layout = "~/Views/Shared/_MinimalLayout.cshtml";
+    ViewData["Title"] = "Erişim Engellendi";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="alert alert-danger" role="alert">
+                <h4 class="alert-heading">Erişim Engellendi!</h4>
+                <p>Bu sayfaya erişim izniniz yok. Lütfen admin bilgileri ile giriş yapın.</p>
+                <hr>
+                <a href="@Url.Action("Login", "Uye")" class="btn btn-primary">Giriş Yap</a>
+            </div>
+        </div>
+    </div>
+</div>

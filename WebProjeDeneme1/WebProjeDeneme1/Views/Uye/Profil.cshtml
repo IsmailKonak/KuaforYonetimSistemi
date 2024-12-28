@@ -15,3 +15,10 @@
     <label for="Password">Şifre</label>
     <input type="password" id="Password" name="Password" class="form-control" value="@Model.Password" readonly />
 </div>
+
+@if (Model.AdminMi)
+{
+    <div class="mt-3">
+        <a href="@Url.Action("Index", "Admin")" class="btn btn-primary">Admin Paneline Git</a>
+    </div>
+}

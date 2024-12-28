@@ -56,10 +56,18 @@
                     <td>@salon.Konum.KonumAdi</td>
                     <td>@salon.BaslangicSaat.ToString(@"hh\:mm") - @salon.BitisSaat.ToString(@"hh\:mm")</td>
                     <td>
-                        @* Öne çıkan hizmetleri burada listeleyeceğiz (şimdilik boş bırakıyoruz) *@
+                        @if (ViewBag.SalonIslemleri.ContainsKey(salon.SalonId))
+                        {
+                            <ul>
+                                @foreach (var islem in ViewBag.SalonIslemleri[salon.SalonId])
+                                {
+                                    <li>@islem</li>
+                                }
+                            </ul>
+                        }
                     </td>
                     <td>
-                        <a href="#" class="btn btn-sm btn-outline-primary">Detaylar</a> @* Detaylar butonu (şimdilik #) *@
+                        <a asp-controller="SalonIslemleri" asp-action="RandevuOlustur" asp-route-salonId="@salon.SalonId" class="btn btn-sm btn-outline-primary">Randevu Oluştur</a>
                     </td>
                 </tr>
             }

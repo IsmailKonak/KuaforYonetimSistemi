@@ -19,6 +19,7 @@
             <th>Gün</th>
             <th>Saat</th>
             <th>Onay Durumu</th>
+            <th>Oluşturan Kullanıcı</th>
             <th>İşlemler</th>
         </tr>
     </thead>
@@ -32,6 +33,7 @@
                 <td>@randevu.Gun.ToShortDateString()</td>
                 <td>@randevu.Saat.ToString(@"hh\:mm")</td> @* Saat formatı düzeltildi *@
                 <td>@(randevu.Onaylandi ? "Onaylandı" : "Onaylanmadı")</td>
+                <td>@randevu.UyeId</td>
                 <td>
                     @if (!randevu.Onaylandi)
                     {

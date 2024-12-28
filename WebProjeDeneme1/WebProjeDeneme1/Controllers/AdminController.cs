@@ -1,17 +1,19 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebProjeDeneme1.Data;
 using WebProjeDeneme1.Models.Salonlar;
 using WebProjeDeneme1.Models.Personeller;
 using WebProjeDeneme1.Models.Uzmanlik;
 using WebProjeDeneme1.Models.Randevular;
-using WebProjeDeneme1.Models.Kullanicilar; 
+using WebProjeDeneme1.Models.Kullanicilar;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace WebProjeDeneme1.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Route("[controller]")]
     public class AdminController : Controller
     {
@@ -177,18 +179,41 @@ namespace WebProjeDeneme1.Controllers
         [HttpPost("Onayla/{id}")]
         public async Task<IActionResult> Onayla(int id)
         {
-            var randevu = await _context.Randevular.FindAsync(id);
+            var randevu = await _context.Randevular
+                .Include(r => r.Islem) // Islem nesnesini de yükle
+                .FirstOrDefaultAsync(r => r.RandevuId == id);
             if (randevu != null)
             {
+                // Randevu uygunluk kontrolleri
+                var uygunlukSonucu = await KontrolRandevuUygunlugu(randevu);
+                if (!uygunlukSonucu.Item1)
+                {
+                    ViewBag.ErrorMessage = uygunlukSonucu.Item2;
+                    return RedirectToAction("RandevuOnayla");
+                }
+
                 randevu.Onaylandi = true;
                 await _context.SaveChangesAsync();
 
                 // Aynı salon, personel ve zaman dilimindeki diğer çakışan randevuları sil
                 var cakisanRandevular = await _context.Randevular
-                    .Where(r => r.SalonId == randevu.SalonId && r.PersonelId == randevu.PersonelId && r.Gun == randevu.Gun && r.Saat == randevu.Saat && r.RandevuId != randevu.RandevuId)
+                    .Where(r => r.SalonId == randevu.SalonId && r.PersonelId == randevu.PersonelId && r.Gun == randevu.Gun && r.RandevuId != randevu.RandevuId)
+                    .Include(r => r.Islem) // Islem nesnesini de yükle
                     .ToListAsync();
 
-                _context.Randevular.RemoveRange(cakisanRandevular);
+                foreach (var cakisanRandevu in cakisanRandevular)
+                {
+                    var cakisanRandevuBitisSaati = cakisanRandevu.Saat + cakisanRandevu.Islem.IslemSuresi;
+                    var randevuBitisSaati = randevu.Saat + randevu.Islem.IslemSuresi;
+
+                    if ((randevu.Saat >= cakisanRandevu.Saat && randevu.Saat < cakisanRandevuBitisSaati) ||
+                        (randevuBitisSaati > cakisanRandevu.Saat && randevuBitisSaati <= cakisanRandevuBitisSaati) ||
+                        (randevu.Saat <= cakisanRandevu.Saat && randevuBitisSaati >= cakisanRandevuBitisSaati))
+                    {
+                        _context.Randevular.Remove(cakisanRandevu);
+                    }
+                }
+
                 await _context.SaveChangesAsync();
             }
 
@@ -228,6 +253,7 @@ namespace WebProjeDeneme1.Controllers
                         .Where(i => personel.UzmanlikAlanlari.Contains(i.UzmanlikAlaniId))
                         .ToListAsync();
                     ViewBag.Islemler = islemler;
+                    ViewBag.SelectedPersonel = personel; // Çalışma saatlerini göstermek için
                 }
             }
 
@@ -241,33 +267,32 @@ namespace WebProjeDeneme1.Controllers
         }
 
         [HttpPost("RandevuOlustur")]
-        public async Task<IActionResult> RandevuOlustur(Randevu model)
+        public async Task<IActionResult> RandevuOlustur(Randevu model, int SalonId, int PersonelId)
         {
-            try
+            // Gün ve Saat alanlarını UTC olarak ayarla
+            model.Gun = DateTime.SpecifyKind(model.Gun, DateTimeKind.Utc);
+            model.Saat = TimeSpan.FromTicks(model.Saat.Ticks);
+
+            // UyeId'yi geçerli bir değerle ayarla (örneğin, oturum açmış kullanıcı)
+            model.UyeId = 1; // Bu değeri oturum açmış kullanıcıya göre ayarlayın
+
+            // Randevu uygunluk kontrolleri
+            var uygunlukSonucu = await KontrolRandevuUygunlugu(model);
+            if (!uygunlukSonucu.Item1)
             {
-                // Gün ve Saat alanlarını UTC olarak ayarla
-                model.Gun = DateTime.SpecifyKind(model.Gun, DateTimeKind.Utc);
-                model.Saat = TimeSpan.FromTicks(model.Saat.Ticks);
-
-                // UyeId'yi geçerli bir değerle ayarla (örneğin, oturum açmış kullanıcı)
-                model.UyeId = 1; // Bu değeri oturum açmış kullanıcıya göre ayarlayın
-
-                // Randevu uygunluk kontrolleri
-                var uygunlukSonucu = await KontrolRandevuUygunlugu(model);
-                if (!uygunlukSonucu.Item1)
-                {
-                    ViewBag.ErrorMessage = uygunlukSonucu.Item2;
-                    return View("~/Views/Admin/RandevuOlustur.cshtml");
-                }
-
-                _context.Randevular.Add(model);
-                await _context.SaveChangesAsync();
-                ViewBag.Message = "Randevu başarıyla oluşturuldu!";
+                ViewBag.ErrorMessage = uygunlukSonucu.Item2;
+                ViewBag.Salonlar = await _context.Salonlar.Include(s => s.Konum).ToListAsync();
+                ViewBag.MevcutRandevular = await _context.Randevular
+                    .Include(r => r.Salon)
+                    .Include(r => r.Personel)
+                    .Include(r => r.Islem)
+                    .ToListAsync();
+                return View("~/Views/Admin/RandevuOlustur.cshtml");
             }
-            catch (DbUpdateException ex)
-            {
-                ViewBag.ErrorMessage = $"Randevu oluşturulamadı: {ex.InnerException?.Message ?? ex.Message}";
-            }
+
+            _context.Randevular.Add(model);
+            await _context.SaveChangesAsync();
+            ViewBag.Message = "Randevu başarıyla oluşturuldu!";
 
             ViewBag.Salonlar = await _context.Salonlar.Include(s => s.Konum).ToListAsync();
             ViewBag.MevcutRandevular = await _context.Randevular
@@ -309,22 +334,44 @@ namespace WebProjeDeneme1.Controllers
 
         private async Task<(bool, string)> KontrolRandevuUygunlugu(Randevu model)
         {
-            // Aynı salon, personel ve saat için başka onaylanmış bir randevu olmadığını kontrol et
-            var mevcutRandevu = await _context.Randevular
-                .Where(r => r.SalonId == model.SalonId && r.PersonelId == model.PersonelId && r.Gun == model.Gun && r.Saat == model.Saat && r.Onaylandi)
-                .FirstOrDefaultAsync();
-
-            if (mevcutRandevu != null)
-            {
-                return (false, "Aynı salon, personel ve saat için başka bir onaylanmış randevu bulunmaktadır.");
-            }
-
             // İşlemin süresi ve randevunun bitiş saati hesaplanır
             var islem = await _context.YapilabilenIslemler.FindAsync(model.IslemId);
+            if (islem == null)
+            {
+                return (false, "Geçersiz işlem seçimi.");
+            }
             var randevuBitisSaati = model.Saat + islem.IslemSuresi;
+
+            // Tarih ve saat kontrolü: sadece bugünden ve şu anki saatten sonraki tarihler için randevu alınabilir
+            var now = DateTime.UtcNow;
+            if (model.Gun < now.Date || (model.Gun == now.Date && model.Saat <= now.TimeOfDay))
+            {
+                return (false, "Randevu tarihi ve saati bugünden ve şu anki saatten sonra olmalıdır.");
+            }
+
+            // Aynı salon, personel ve saat için başka onaylanmış bir randevu olmadığını kontrol et
+            var mevcutRandevular = await _context.Randevular
+                .Where(r => r.SalonId == model.SalonId && r.PersonelId == model.PersonelId && r.Gun == model.Gun && r.Onaylandi)
+                .Include(r => r.Islem) // Islem nesnesini de yükle
+                .ToListAsync();
+
+            foreach (var randevu in mevcutRandevular)
+            {
+                var mevcutRandevuBitisSaati = randevu.Saat + randevu.Islem.IslemSuresi;
+                if ((model.Saat >= randevu.Saat && model.Saat < mevcutRandevuBitisSaati) ||
+                    (randevuBitisSaati > randevu.Saat && randevuBitisSaati <= mevcutRandevuBitisSaati) ||
+                    (model.Saat <= randevu.Saat && randevuBitisSaati >= mevcutRandevuBitisSaati))
+                {
+                    return (false, "Aynı salon, personel ve saat için başka bir onaylanmış randevu bulunmaktadır.");
+                }
+            }
 
             // Salonun çalışma saatleriyle uyum kontrolü yapılır
             var salon = await _context.Salonlar.FindAsync(model.SalonId);
+            if (salon == null)
+            {
+                return (false, "Geçersiz salon seçimi.");
+            }
             if (randevuBitisSaati > salon.BitisSaat || model.Saat < salon.BaslangicSaat)
             {
                 return (false, "Randevu saati salonun çalışma saatleri dışında.");
@@ -332,6 +379,10 @@ namespace WebProjeDeneme1.Controllers
 
             // Personelin çalışma saatleriyle uyum kontrolü yapılır
             var personel = await _context.Personeller.FindAsync(model.PersonelId);
+            if (personel == null)
+            {
+                return (false, "Geçersiz personel seçimi.");
+            }
             if (randevuBitisSaati > personel.BitisSaat || model.Saat < personel.BaslangicSaat)
             {
                 return (false, "Randevu saati personelin çalışma saatleri dışında.");
