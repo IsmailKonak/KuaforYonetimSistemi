@@ -2,7 +2,7 @@
 using WebProjeDeneme1.Data;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = Microsoft.AspNetCore.Builder.WebApplication.CreateBuilder(args);
 
 // PostgreSQL bağlantısını ekle
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -11,6 +11,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 // MVC hizmetlerini ekle
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpClient();
 
 // Cookie Authentication ekle
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

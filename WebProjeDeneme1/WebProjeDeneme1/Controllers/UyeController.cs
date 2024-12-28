@@ -54,7 +54,7 @@ namespace WebProjeDeneme1.Controllers
                 return RedirectToAction("Index", "Admin");
             }
 
-            return RedirectToAction("Menu", "Uye");
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet("Register")]

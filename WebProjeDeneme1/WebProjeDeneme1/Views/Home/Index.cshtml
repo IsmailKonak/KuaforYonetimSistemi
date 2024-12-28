@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>X Kuaförleri - Online Randevu</title>
+    <link rel="stylesheet" href="~/css/style.css">
+    <!-- Slick CSS kaldırıldı -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" /> -->
+
     <style>
         /* Genel Stil */
         body {
@@ -20,7 +25,8 @@
         }
 
         h1, h2, h3, h4 {
-            color: #d4af37; /* Altın Rengi */
+            color: #d4af37;
+            /* Altın Rengi */
         }
 
         h3 {
@@ -43,7 +49,8 @@
         }
 
             .btn:hover {
-                background: #b8860b; /* Koyu Altın Rengi */
+                background: #b8860b;
+                /* Koyu Altın Rengi */
             }
 
         /* Header */
@@ -62,28 +69,15 @@
                     text-decoration: none;
                 }
 
-            header nav ul {
-                padding: 0;
-                list-style: none;
-            }
-
-                header nav ul li {
-                    display: inline;
-                    margin-left: 20px;
-                }
-
-                    header nav ul li a {
-                        color: #fff;
-                        text-decoration: none;
-                    }
-
         /* Hero Section */
         #hero {
-            background: url('images/hero.jpg') no-repeat center center/cover; /* Arkaplan resmi eklenecek */
+            background: url('images/hero.jpg') no-repeat center center/cover;
+            /* Arkaplan resmi eklenecek */
             min-height: 400px;
             color: #fff;
             text-align: center;
             padding-top: 100px;
+            margin-bottom: 40px; /* Şubeler kısmı ile arayı açmak için */
         }
 
             #hero h2 {
@@ -119,103 +113,110 @@
                 width: 100px;
                 height: 100px;
                 margin-bottom: 10px;
-            }
-
-        /* Nasıl Çalışır Section */
-        #nasil-calisir {
-            padding: 40px 0;
-            background: #fff;
-        }
-
-        .adim-listesi {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-
-        .adim {
-            flex: 0 0 22%;
-            text-align: center;
-            padding: 20px;
-        }
-
-            .adim img {
-                width: 80px;
-                height: 80px;
-                margin-bottom: 10px;
+                object-fit: cover;
             }
 
         /* Şubeler Section */
         #subeler {
             padding: 40px 0;
-            background-color: #f4f4f4;
+            background-color: #fff; /* Arka plan rengini değiştirerek ayrımı belirginleştirebilirsiniz */
         }
 
         .sube-listesi {
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+            justify-content: space-around; /* Şubeleri yatayda eşit dağıt */
+            flex-wrap: wrap; /* Gerekirse alt satıra geçebilir */
         }
 
         .sube {
-            flex: 0 0 30%;
-            margin-bottom: 30px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: calc(33.33% - 20px); /* Üçte bir genişlik, boşlukları ayarla */
+            height: auto;
+            margin-right: 20px;
+            margin-bottom: 20px; /* Alt boşluk eklendi */
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; /* İçeriğin taşmasını engelle */
+            box-sizing: border-box; /* Padding ve border genişliğe dahil olsun */
         }
 
-            .sube img {
+            .sube:nth-child(3n) {
+                margin-right: 0; /* Her satırın son elemanının sağ boşluğunu kaldır */
+            }
+
+            .sube .sube-resmi {
                 width: 100%;
-                height: 200px;
-                object-fit: cover;
+                height: 150px; /* Resim yüksekliği sınırlandırıldı */
+                margin-bottom: 5px;
+                object-fit: cover; /* Resmi boyutuna sığdır */
             }
 
             .sube h4 {
-                padding: 10px;
-                margin: 0;
+                margin-top: 0;
+                margin-bottom: 5px;
+                font-size: 1em;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
             }
 
             .sube p {
-                padding: 10px;
+                margin-bottom: 5px;
+                font-size: 0.9em;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 3; /* Gösterilecek satır sayısı */
+                -webkit-box-orient: vertical;
             }
+
+        /* Slick Slider Özel Stilleri - DÜZELTME */
+        /* Slick stilleri kaldırıldı */
+        /*.slick-list {*/
+        /*    overflow: hidden;*/
+        /*}*/
+
+        /*.slick-track {*/
+        /*    display: flex;*/
+        /*    flex-direction: row;*/
+        /*    align-items: stretch;*/
+        /*}*/
+
+        /*.slick-slide {*/
+        /*    float: none;*/
+        /*    display: flex;*/
+        /*    height: auto;*/
+        /*}*/
+
+        /*    .slick-slide > div {*/
+        /*        display: flex;*/
+        /*        flex-direction: column;*/
+        /*        width: 100%;*/
+        /*        height: 100%;*/
+        /*    }*/
+
+        /*!* Slick Slider Özel Stilleri *!*/
+        /*.slick-vertical .slick-slide {*/
+        /*    height: auto;*/
+        /*    padding-bottom: 10px;*/
+        /*    box-sizing: border-box;*/
+        /*}*/
+
+        /*.slick-slider .slick-list {*/
+        /*    padding: 0;*/
+        /*    margin-bottom: 0;*/
+        /*}*/
+
+        /*.slick-slide {*/
+        /*    margin-bottom: 0;*/
+        /*}*/
 
         /* Hakkımızda Section */
         #hakkimizda {
             padding: 40px 0;
-            background: #fff;
+            background: #f4f4f4; /* Arka plan rengini değiştirerek ayrımı belirginleştirebilirsiniz */
         }
-
-        /* İletişim Section */
-        #iletisim {
-            padding: 40px 0;
-            background-color: #f4f4f4;
-        }
-
-            #iletisim ul {
-                list-style: none;
-                padding: 0;
-            }
-
-            #iletisim .social-media {
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                margin-top: 10px;
-            }
-
-                #iletisim .social-media li {
-                    margin-right: 10px;
-                }
-
-                    #iletisim .social-media li a {
-                        display: block;
-                        width: 32px;
-                        height: 32px;
-                    }
-
-                        #iletisim .social-media li a img {
-                            width: 100%;
-                            height: 100%;
-                        }
 
         /* Footer */
         footer {
@@ -223,6 +224,7 @@
             color: #fff;
             text-align: center;
             padding: 20px 0;
+            margin-top: 40px; /* Hakkımızda kısmı ile arayı açmak için */
         }
     </style>
 </head>
@@ -232,7 +234,8 @@
         <div class="container">
             <h2>X Kuaförleri - Güzelliğin Adresi</h2>
             <p>Türkiye'nin her yerinde, size en yakın X Kuaförleri şubesinde, uzman ekibimiz ve kaliteli hizmet anlayışımızla güzelliğinize güzellik katıyoruz. Kolay online randevu sistemimizle, dilediğiniz şubemizden, dilediğiniz hizmet için, dilediğiniz saatte randevu alabilirsiniz.</p>
-            <a href="#subeler" class="btn">Hemen Randevu Al</a>
+            @* <a href="#subeler" class="btn">Hemen Şubelerimize Göz Atın</a> *@
+            <a class="btn" aria-current="page" asp-area="" asp-controller="SalonIslemleri" asp-action="Index">Hemen Şubelerimize Göz Atın</a>
         </div>
     </section>
 
@@ -241,52 +244,19 @@
             <h3>Öne Çıkan Özelliklerimiz</h3>
             <div class="ozellik-listesi">
                 <div class="ozellik">
-                    <img src="images/yaygin-sube.png" alt="Yaygın Şube Ağı">
+                    <img src="images/yayginsube.jpg" alt="Yaygın Şube Ağı">
                     <h4>Yaygın Şube Ağı</h4>
                     <p>Türkiye'nin dört bir yanında, kolayca ulaşabileceğiniz şubelerimizle hizmetinizdeyiz.</p>
                 </div>
                 <div class="ozellik">
-                    <img src="images/deneyimli-kadro.png" alt="Deneyimli Kadro">
+                    <img src="images/deneyimlikadro.jpg" alt="Deneyimli Kadro">
                     <h4>Deneyimli Kadro</h4>
                     <p>Alanında uzman, profesyonel ve güler yüzlü ekibimizle tanışın.</p>
                 </div>
                 <div class="ozellik">
-                    <img src="images/kaliteli-hizmet.png" alt="Kaliteli Hizmet">
+                    <img src="images/kalitelihizmet.jpg" alt="Kaliteli Hizmet">
                     <h4>Kaliteli Hizmet</h4>
                     <p>En son trendleri ve en kaliteli ürünleri, X Kuaförleri güvencesiyle deneyimleyin.</p>
-                </div>
-                <div class="ozellik">
-                    <img src="images/kolay-randevu.png" alt="Kolay Randevu">
-                    <h4>Kolay Randevu</h4>
-                    <p>Web sitemiz veya mobil uygulamamız üzerinden, birkaç tıklamayla randevu alın.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="nasil-calisir">
-        <div class="container">
-            <h3>Nasıl Çalışır?</h3>
-            <div class="adim-listesi">
-                <div class="adim">
-                    <img src="images/adim1.png" alt="Adım 1">
-                    <h4>1. Şubenizi Seçin</h4>
-                    <p>Size en yakın X Kuaförleri şubesini seçin.</p>
-                </div>
-                <div class="adim">
-                    <img src="images/adim2.png" alt="Adım 2">
-                    <h4>2. Hizmetinizi Seçin</h4>
-                    <p>Saç kesiminden boyaya, manikürden pediküre, ihtiyacınız olan hizmeti belirleyin.</p>
-                </div>
-                <div class="adim">
-                    <img src="images/adim3.png" alt="Adım 3">
-                    <h4>3. Tarih ve Saat Belirleyin</h4>
-                    <p>Sizin için uygun olan tarih ve saati seçin.</p>
-                </div>
-                <div class="adim">
-                    <img src="images/adim4.png" alt="Adım 4">
-                    <h4>4. Randevunuzu Onaylayın</h4>
-                    <p>Randevu bilgilerinizi kontrol edin ve onaylayın.</p>
                 </div>
             </div>
         </div>
@@ -296,24 +266,7 @@
         <div class="container">
             <h3>Şubelerimiz</h3>
             <div class="sube-listesi">
-                <div class="sube">
-                    <img src="images/sube-kadikoy.jpg" alt="X Kuaförleri - Kadıköy">
-                    <h4>X Kuaförleri - Kadıköy</h4>
-                    <p>Adres: Bağdat Caddesi No:123, Kadıköy, İstanbul</p>
-                    <a href="#" class="btn">Randevu Al</a>
-                </div>
-                <div class="sube">
-                    <img src="images/sube-besiktas.jpg" alt="X Kuaförleri - Beşiktaş">
-                    <h4>X Kuaförleri - Beşiktaş</h4>
-                    <p>Adres: Ihlamurdere Caddesi No:45, Beşiktaş, İstanbul</p>
-                    <a href="#" class="btn">Randevu Al</a>
-                </div>
-                <div class="sube">
-                    <img src="images/sube-nisantasi.jpg" alt="X Kuaförleri - Nişantaşı">
-                    <h4>X Kuaförleri - Nişantaşı</h4>
-                    <p>Adres: Teşvikiye Caddesi No:67, Şişli, İstanbul</p>
-                    <a href="#" class="btn">Randevu Al</a>
-                </div>
+                <!-- Şube bilgileri buraya JavaScript ile yüklenecek -->
             </div>
         </div>
     </section>
@@ -325,28 +278,14 @@
         </div>
     </section>
 
-    <section id="iletisim">
-        <div class="container">
-            <h3>İletişim</h3>
-            <p>Bize ulaşmak için aşağıdaki bilgileri kullanabilirsiniz:</p>
-            <ul>
-                <li>Telefon: +90 212 123 45 67</li>
-                <li>E-posta: info@xkuaforleri.com</li>
-            </ul>
-            <p>Sosyal medyada bizi takip edin:</p>
-            <ul class="social-media">
-                <li><a href="#"><img src="images/facebook.png" alt="Facebook"></a></li>
-                <li><a href="#"><img src="images/instagram.png" alt="Instagram"></a></li>
-                <li><a href="#"><img src="images/twitter.png" alt="Twitter"></a></li>
-            </ul>
-        </div>
-    </section>
-
     <footer>
         <div class="container">
-            <p>© 2023 X Kuaförleri. Tüm hakları saklıdır.</p>
         </div>
     </footer>
-    <script src="script.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Slick JS kaldırıldı -->
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> -->
+    <script src="~/js/site.js"></script>
 </body>
 </html>

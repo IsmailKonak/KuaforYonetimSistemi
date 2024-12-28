@@ -38,10 +38,44 @@
                             <a class="nav-link active" aria-current="page" asp-area="" asp-controller="SalonIslemleri" asp-action="Index">Kuaförler</a>
                         </li>
 
+                        <li class="nav-item dropdown position-static">
+                            <a asp-area="" asp-controller="Uye" asp-action="RandevuOlustur" class="nav-link fw-bold" id="salonsDropdown" role="button">Randevu Al</a>
+                            <div class="dropdown-menu w-100 p-4" style="background-color: #1c1c1c; display: none;">
+                                <div class="container text-center">
+                                    <div class="row">
+                                        <!-- Top Salons -->
+                                        <div class="col-md-4">
+                                            <a asp-area="" asp-controller="Uye" asp-action="RandevuOlustur" asp-route-SalonId="1" class="text-decoration-none">
+                                                <img src="/images/istanbul.jpg" alt="Top Salons" class="img-fluid rounded mb-2" />
+                                                <h6 style="color: #d4af37;">Istanbul</h6>
+                                            </a>
+                                        </div>
+                                        <!-- Favorites -->
+                                        <div class="col-md-4">
+                                            <a asp-area="" asp-controller="Uye" asp-action="RandevuOlustur" asp-route-SalonId="2" class="text-decoration-none">
+                                                <img src="/images/ankara.jpg" alt="Favorites" class="img-fluid rounded mb-2" />
+                                                <h6 style="color: #d4af37;">Ankara</h6>
+                                            </a>
+                                        </div>
+                                        <!-- Custom Choice -->
+                                        <div class="col-md-4">
+                                            <a asp-area="" asp-controller="Uye" asp-action="RandevuOlustur" asp-route-SalonId="3" class="text-decoration-none">
+                                                <img src="~/images/izmir.jpg" alt="Custom Choice" class="img-fluid rounded mb-2" />
+                                                <h6 style="color: #d4af37;">Izmir</h6>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
                     </ul>
 
                     <!-- Login / My Account -->
                     <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" asp-area="" asp-controller="AI" asp-action="Index">Bu saç yakışır mı?</a>
+                        </li>
                         @if (User.Identity.IsAuthenticated)
                         {
                             <!-- If user is logged in -->
