@@ -66,6 +66,13 @@ namespace WebProjeDeneme1.Controllers
         [HttpPost("Register")]
         public async Task<IActionResult> Register(Uye model)
         {
+            var existingUser = await _context.Uyeler.SingleOrDefaultAsync(x => x.Email == model.Email);
+            if (existingUser != null)
+            {
+                ViewBag.Message = "Bu email adresi zaten kayıtlı!";
+                return View();
+            }
+
             var user = new Uye
             {
                 Email = model.Email,

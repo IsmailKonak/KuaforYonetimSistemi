@@ -2,11 +2,12 @@
 
 @{
     ViewData["Title"] = "Randevularım";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Randevularım</h2>
+<h1>Randevularım</h1>
 
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Salon</th>
@@ -21,11 +22,11 @@
         @foreach (var randevu in Model)
         {
             <tr>
-                <td>@randevu.Salon.Konum.KonumAdi</td>
+                <td>@(randevu.Salon?.Konum?.KonumAdi ?? "Bilinmiyor")</td>
                 <td>@randevu.Personel.PersonelId</td>
                 <td>@randevu.Islem.IslemAdi</td>
                 <td>@randevu.Gun.ToShortDateString()</td>
-                <td>@randevu.Saat</td>
+                <td>@randevu.Saat.ToString(@"hh\:mm")</td>
                 <td>@(randevu.Onaylandi ? "Onaylandı" : "Onaylanmadı")</td>
             </tr>
         }

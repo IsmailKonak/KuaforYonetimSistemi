@@ -11,6 +11,14 @@
             <div class="card shadow-lg rounded-3">
                 <div class="card-body p-5">
                     <h4 class="text-center text-gold mb-4">Müşteri Kaydı</h4>
+
+                    @if (ViewBag.Message != null)
+                    {
+                        <div class="alert alert-danger">
+                            @ViewBag.Message
+                        </div>
+                    }
+
                     <form asp-controller="Uye" asp-action="Register" method="post">
                         <div class="form-floating mb-3">
                             <input asp-for="Email" class="form-control" id="signupEmail" placeholder="name@example.com" />
